@@ -125,3 +125,9 @@
 
 14. **CI/CD Pipeline**
     - **Jenkins** or **GitHub Actions**: For setting up Continuous Integration and Continuous Deployment pipelines to automate testing and deployment processes.
+
+### Database Schema
+
+<div align="center">
+   <img src="https://github.com/user-attachments/assets/dcbed160-e82a-4da7-ac6c-9ea43e60e240" />
+</div>
