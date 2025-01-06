@@ -1,7 +1,10 @@
 package com.skillify.project.repository;
 
 import com.skillify.project.model.Course;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface CourseRepository extends JpaRepository<Course, Long> {
+import java.util.Optional;
+
+public interface CourseRepository extends MongoRepository<Course, String> {
+    Optional<Course> findByName(String name);
 }

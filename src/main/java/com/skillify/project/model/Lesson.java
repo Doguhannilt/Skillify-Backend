@@ -1,14 +1,13 @@
 package com.skillify.project.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.*;
-
-@Entity
+@Document
 public class Lesson {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String title;
 
@@ -16,16 +15,14 @@ public class Lesson {
 
     private String videoUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
+    private String courseId;
 
-    // Getter ve Setter'lar
-    public Long getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -53,11 +50,11 @@ public class Lesson {
         this.videoUrl = videoUrl;
     }
 
-    public Course getCourse() {
-        return course;
+    public String getCourseId() {
+        return courseId;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
 }

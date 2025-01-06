@@ -1,13 +1,13 @@
 package com.skillify.project.model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;  // MongoDB id'leri genellikle String türünde olur
 
     private String name;
 
@@ -15,15 +15,14 @@ public class User {
 
     private String password;
 
-    @Enumerated(EnumType.STRING)
     private Role role;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -59,4 +58,3 @@ public class User {
         this.role = role;
     }
 }
-

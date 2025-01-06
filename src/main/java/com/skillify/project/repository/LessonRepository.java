@@ -1,7 +1,7 @@
 package com.skillify.project.repository;
 
 import com.skillify.project.model.Lesson;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface LessonRepository extends JpaRepository<Lesson, Long> {
+public interface LessonRepository extends MongoRepository<Lesson, Long> {
 }

@@ -1,29 +1,62 @@
 package com.skillify.project.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.*;
+import java.sql.Array;
+import java.util.Date;
+import java.util.List;
 
-@Entity
+@Document
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "instructor_id")
-    private User instructor;
+    private String description;
 
-    // Getter ve Setter'lar
-    public Long getId() {
+    private Integer price;
+
+    private List<String> language;
+
+
+    public List<String> getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(List<String> language) {
+        this.language = language;
+    }
+
+    private String instructorId;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
 
     public String getName() {
         return name;
@@ -33,11 +66,11 @@ public class Course {
         this.name = name;
     }
 
-    public User getInstructor() {
-        return instructor;
+    public String getInstructorId() {
+        return instructorId;
     }
 
-    public void setInstructor(User instructor) {
-        this.instructor = instructor;
+    public void setInstructorId(String instructorId) {
+        this.instructorId = instructorId;
     }
 }

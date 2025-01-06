@@ -1,6 +1,6 @@
 package com.skillify.project.request;
 
-
+import com.skillify.project.model.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -16,7 +16,7 @@ public class SignupRequest {
     @NotEmpty(message = "Password cannot be empty")
     private String password;
 
-    private String role;  // ROLE_ADMIN, ROLE_INSTRUCTOR, ROLE_STUDENT gibi değerler
+    private Role role;  // ROLE_ADMIN, ROLE_INSTRUCTOR, ROLE_STUDENT gibi değerler
 
     // Getter ve Setter metodları
 
@@ -44,11 +44,11 @@ public class SignupRequest {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

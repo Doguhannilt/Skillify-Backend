@@ -1,11 +1,18 @@
 package com.skillify.project.service;
 
+import com.skillify.project.model.Role;
 import com.skillify.project.model.User;
 import com.skillify.project.repository.UserRepository;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -18,17 +25,20 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("Kullanıcı bulunamadı: " + email));
+        Optional<User> user = userRepository.findByEmail(email);
+        if (user.isEmpty()) {
+            throw new UsernameNotFoundException("User not found with email: " + email);
+        }
 
-        String role = user.getRole() != null
-                ? user.getRole().name().replace("ROLE_", "")
-                : "USER";
-
-        return org.springframework.security.core.userdetails.User
-                .withUsername(user.getEmail())
-                .password(user.getPassword())
-                .roles(role)
-                .build();
+        return new org.springframework.security.core.userdetails.User(
+                user.get().getEmail(),
+                user.get().getPassword(),
+                getAuthorities(user.get().getRole())
+        );
     }
+
+    private Collection<? extends GrantedAuthority> getAuthorities(Role role) {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
 }

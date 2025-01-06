@@ -1,63 +1,39 @@
 package com.skillify.project.controller;
 
 import com.skillify.project.config.JwtTokenUtil;
-import com.skillify.project.model.Role;
-import com.skillify.project.model.User;
-import com.skillify.project.repository.UserRepository;
-import com.skillify.project.request.SignupRequest;
 import com.skillify.project.request.LoginRequest;
+import com.skillify.project.service.CustomUserDetailsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final PasswordEncoder passwordEncoder;
-    private final UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
+    private final CustomUserDetailsService userDetailsService;
 
-    public AuthController(PasswordEncoder passwordEncoder, LoginRequest loginRequest, UserRepository userRepository, AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil) {
-        this.passwordEncoder = passwordEncoder;
-        this.userRepository = userRepository;
+    public AuthController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, CustomUserDetailsService userDetailsService) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenUtil = jwtTokenUtil;
+        this.userDetailsService = userDetailsService;
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
-
-        String username = loginRequest.getEmail();
-        String password = loginRequest.getPassword();
-
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(username, password)
+    public ResponseEntity<?> createAuthToken(@RequestBody LoginRequest loginRequest) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword())
         );
 
-        String role = authentication.getAuthorities().iterator().next().getAuthority();
-        return jwtTokenUtil.generateToken(username);
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getEmail());
+        final String token = jwtTokenUtil.generateToken(userDetails);
+
+        return ResponseEntity.ok(token);
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestBody SignupRequest signupRequest) {
 
-        if (userRepository.existsByEmail(signupRequest.getEmail())) {
-            return ResponseEntity.badRequest().body("Email is already in use");
-        }
-
-        User user = new User();
-        user.setName(signupRequest.getName());
-        user.setEmail(signupRequest.getEmail());
-        user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));  // Şifreyi encode et
-        user.setRole(Role.valueOf(signupRequest.getRole()));  // Role enum'ını al
-
-        userRepository.save(user);
-
-        return ResponseEntity.ok("User registered successfully");
-    }
 }
