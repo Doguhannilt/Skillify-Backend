@@ -2,15 +2,15 @@
 
 ### **Tasks for Online Course Management Platform**
 
-1. **User Registration and Authentication**
+1. **User Registration and Authentication** ✔
    - **Task**: Implement user registration functionality with email and password.
    - **Description**: Users should be able to sign up by providing their email, password, and name. The system should store this information securely in the database. Passwords should be encrypted using a secure algorithm (e.g., BCrypt).
    
-2. **User Role Management**
+2. **User Role Management** ✔
    - **Task**: Implement role-based authentication for different users.
    - **Description**: The platform should support multiple roles such as "Instructor", "Student", and "Admin". Based on the role, the user should have access to different parts of the platform, like instructors managing courses and students enrolling in courses.
    
-3. **Login and JWT Authentication**
+3. **Login and JWT Authentication** ✔
    - **Task**: Implement a login system that uses JWT (JSON Web Token) for stateless authentication.
    - **Description**: After users log in with their credentials (email and password), they should receive a JWT token that will be used for subsequent requests to authenticate and authorize their actions.
 
