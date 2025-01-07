@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudentDashboardImp implements StudentDashboardService {
+public class StudentDashboardServiceImp implements StudentDashboardService {
     private final EnrollmentRepository enrollmentRepository;
     private final LessonRepository lessonRepository;
-    public StudentDashboardImp(EnrollmentRepository enrollmentRepository, LessonRepository lessonRepository) {
+    public StudentDashboardServiceImp(EnrollmentRepository enrollmentRepository, LessonRepository lessonRepository) {
         this.enrollmentRepository = enrollmentRepository;
         this.lessonRepository = lessonRepository;
     }

@@ -1,7 +1,7 @@
 package com.skillify.project.controller;
 
 import com.skillify.project.model.Enrollment;
-import com.skillify.project.service.StudentDashboardImp;
+import com.skillify.project.service.StudentDashboardServiceImp;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +11,9 @@ import java.util.List;
 @RequestMapping("/api/student/dashboard")
 public class StudentDashboardController {
 
-    private final StudentDashboardImp dashboardService;
+    private final StudentDashboardServiceImp dashboardService;
 
-    public StudentDashboardController(StudentDashboardImp dashboardService) {
+    public StudentDashboardController(StudentDashboardServiceImp dashboardService) {
         this.dashboardService = dashboardService;
     }
 

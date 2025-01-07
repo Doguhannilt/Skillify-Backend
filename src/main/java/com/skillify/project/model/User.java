@@ -1,6 +1,7 @@
 package com.skillify.project.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -16,7 +17,7 @@ public class User {
     private String password;
 
     private Role role;
-
+    
 
     public String getId() {
         return id;

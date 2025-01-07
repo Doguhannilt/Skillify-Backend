@@ -21,6 +21,16 @@ public class Course {
 
     private Status status;
 
+    private String instructorId;
+
+    public String getInstructorId() {
+        return instructorId;
+    }
+
+    public void setInstructorId(String instructorId) {
+        this.instructorId = instructorId;
+    }
+
     public String getId() {
         return id;
     }
