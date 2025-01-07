@@ -32,6 +32,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/dashboard").hasRole("STUDENT")
                         .requestMatchers("/api/student/**").hasRole("STUDENT")
                         .requestMatchers("/api/search/**").hasAnyRole("STUDENT", "INSTRUCTOR")
+                        .requestMatchers("/api/student/dashboard/**").hasRole("STUDENT")
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthenticationEntryPoint))

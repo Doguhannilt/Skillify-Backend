@@ -16,7 +16,7 @@ public class SearchController {
     public SearchController(SearchServiceImp searchService) {
         this.searchService = searchService;
     }
-    
+
     @GetMapping("/courses")
     public ResponseEntity<List<Course>> getAllCourses() {
         return searchService.getAllCourses();
