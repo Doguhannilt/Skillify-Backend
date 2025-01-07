@@ -26,7 +26,7 @@
    - **Task**: Allow instructors to add lessons to their courses.
    - **Description**: Instructors should be able to add lessons to their courses, including providing a title, content, and an optional video URL for each lesson. Lessons should be associated with a specific course.
 
-7. **Course List and Search**
+7. **Course List and Search** ✔
    - **Task**: Display a list of all available courses with search and filter functionality.
    - **Description**: Students should be able to browse and search for courses by name, category, or instructor. The list should be paginated to handle large numbers of courses.
 
