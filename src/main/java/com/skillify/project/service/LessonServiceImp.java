@@ -8,36 +8,53 @@ import com.skillify.project.repository.LessonRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
 @Service
 public class LessonServiceImp implements LessonService {
 
+    private final CloudinaryService cloudinaryService;
     private final CourseRepository courseRepository;
     private final LessonRepository lessonRepository;
 
-    public LessonServiceImp(CourseRepository courseRepository, LessonRepository lessonRepository) {
+    public LessonServiceImp(CloudinaryService cloudinaryService, CourseRepository courseRepository, LessonRepository lessonRepository) {
+        this.cloudinaryService = cloudinaryService;
         this.courseRepository = courseRepository;
         this.lessonRepository = lessonRepository;
     }
 
     @Override
-    public ResponseEntity<String> createLesson(Lesson lesson) throws Exception {
+    public ResponseEntity<String> createLesson(Lesson lesson, MultipartFile videoFile) throws Exception {
         try {
+            // Course ID kontrolü
             Optional<Course> isCourseIdValid = courseRepository.findById(String.valueOf(lesson.getCourseId()));
-            if(isCourseIdValid.isEmpty()){throw new IllegalArgumentException("Course is not available");}
+            if (isCourseIdValid.isEmpty()) {
+                throw new IllegalArgumentException("Course is not available");
+            }
+
+            // Video dosyası yükleme
+            if (videoFile != null && !videoFile.isEmpty()) {
+                String videoUrl = cloudinaryService.uploadVideo(videoFile);
+                lesson.setVideoUrl(videoUrl);
+            }
+
+            // Lesson kaydetme
             lessonRepository.save(lesson);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Course has been created: " + lesson.getId());
+
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body("Lesson has been created with ID: " + lesson.getId());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
 
     @Override
     public ResponseEntity<String> deleteLesson(Lesson lesson) throws Exception {
         try {
-            courseRepository.deleteById(String.valueOf(lesson.getId()));
+            lessonRepository.deleteById(lesson.getId());
             return ResponseEntity.status(HttpStatus.CREATED).body("Course has been created: " + lesson.getId());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -45,25 +62,23 @@ public class LessonServiceImp implements LessonService {
     }
 
     @Override
-    public ResponseEntity<String> updateLesson(Lesson lesson) throws Exception {
-        try{
-            if (lesson == null || lesson.getId() == null) {throw new IllegalArgumentException("Lesson or Lesson ID cannot be null");}
-
-            Optional<Lesson> existingLesson = lessonRepository.findById(lesson.getId());
-            if (existingLesson.isEmpty()) {throw new Exception("Lesson not found with ID: " + lesson.getId());}
-
-            Lesson updatedLesson = existingLesson.get();
-            updatedLesson.setTitle(lesson.getTitle());
-            updatedLesson.setContent(lesson.getContent());
-            updatedLesson.setVideoUrl(lesson.getVideoUrl());
-            updatedLesson.setCourseId(lesson.getCourseId());
-
-            lessonRepository.save(updatedLesson);
-
-            return ResponseEntity.status(HttpStatus.OK).body("Lesson updated successfully with ID: " + updatedLesson.getId());
+    public ResponseEntity<String> updateLesson(Lesson lesson, MultipartFile videoFile) throws Exception {
+        try {
+            Lesson existingLesson = lessonRepository.findById(lesson.getId())
+                    .orElseThrow(() -> new Exception("Lesson not found with ID: " + lesson.getId()));
+            existingLesson.setTitle(lesson.getTitle());
+            existingLesson.setContent(lesson.getContent());
+            existingLesson.setCourseId(lesson.getCourseId());
+            if (videoFile != null && !videoFile.isEmpty()) {
+                String videoUrl = cloudinaryService.uploadVideo(videoFile);
+                existingLesson.setVideoUrl(videoUrl);
+            }
+            lessonRepository.save(existingLesson);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body("Lesson updated successfully with ID: " + existingLesson.getId());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.OK).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
-
     }
+
 }
