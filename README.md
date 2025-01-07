@@ -30,7 +30,7 @@
    - **Task**: Display a list of all available courses with search and filter functionality.
    - **Description**: Students should be able to browse and search for courses by name, category, or instructor. The list should be paginated to handle large numbers of courses.
 
-8. **Student Dashboard**
+8. **Student Dashboard** ✔
    - **Task**: Create a dashboard for students to view their enrolled courses and lessons.
    - **Description**: Students should be able to see the list of courses they are enrolled in, along with their respective lessons. They should be able to mark lessons as completed and view their progress.
 
