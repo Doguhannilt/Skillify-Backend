@@ -14,7 +14,7 @@
    - **Task**: Implement a login system that uses JWT (JSON Web Token) for stateless authentication.
    - **Description**: After users log in with their credentials (email and password), they should receive a JWT token that will be used for subsequent requests to authenticate and authorize their actions.
 
-4. **Course Creation and Management**
+4. **Course Creation and Management** ✔
    - **Task**: Allow instructors to create and manage their courses.
    - **Description**: Instructors should be able to create courses by providing details like course title, description, and category. They should also be able to edit or delete their courses.
 
