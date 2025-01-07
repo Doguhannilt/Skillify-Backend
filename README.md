@@ -22,7 +22,7 @@
    - **Task**: Allow students to enroll in available courses.
    - **Description**: Students should be able to browse available courses and enroll in them. They should also be able to view details of the course and check if it is already full.
 
-6. **Lesson Management**
+6. **Lesson Management** ✔
    - **Task**: Allow instructors to add lessons to their courses.
    - **Description**: Instructors should be able to add lessons to their courses, including providing a title, content, and an optional video URL for each lesson. Lessons should be associated with a specific course.
 
