@@ -18,7 +18,7 @@
    - **Task**: Allow instructors to create and manage their courses.
    - **Description**: Instructors should be able to create courses by providing details like course title, description, and category. They should also be able to edit or delete their courses.
 
-5. **Course Enrollment**
+5. **Course Enrollment** ✔
    - **Task**: Allow students to enroll in available courses.
    - **Description**: Students should be able to browse available courses and enroll in them. They should also be able to view details of the course and check if it is already full.
 
