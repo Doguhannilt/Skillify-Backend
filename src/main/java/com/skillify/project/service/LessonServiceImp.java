@@ -50,7 +50,6 @@ public class LessonServiceImp implements LessonService {
         }
     }
 
-
     @Override
     public ResponseEntity<String> deleteLesson(Lesson lesson) throws Exception {
         try {
@@ -80,5 +79,4 @@ public class LessonServiceImp implements LessonService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
 }

@@ -3,8 +3,6 @@ package com.skillify.project.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.sql.Array;
-import java.util.Date;
 import java.util.List;
 
 @Document
@@ -21,6 +19,15 @@ public class Course {
 
     private List<String> language;
 
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public List<String> getLanguage() {
         return language;
@@ -55,8 +62,6 @@ public class Course {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 
     public String getName() {
         return name;
