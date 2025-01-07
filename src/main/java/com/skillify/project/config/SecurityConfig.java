@@ -28,6 +28,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/courses/**").hasRole("INSTRUCTOR")
+                        .requestMatchers("/api/lesson/**").hasRole("INSTRUCTOR")
                         .requestMatchers("/api/student/**").hasRole("STUDENT")
                         .anyRequest().authenticated()
                 )

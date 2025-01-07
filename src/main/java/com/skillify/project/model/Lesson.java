@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Lesson {
 
     @Id
-    private String id;
+    private Long id;
 
     private String title;
 
@@ -15,14 +15,14 @@ public class Lesson {
 
     private String videoUrl;
 
-    private String courseId;
+    private Long courseId;
 
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,11 +50,11 @@ public class Lesson {
         this.videoUrl = videoUrl;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 }
