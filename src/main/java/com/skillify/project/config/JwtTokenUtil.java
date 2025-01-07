@@ -22,17 +22,16 @@ public class JwtTokenUtil {
     private final SecretKey secretKey = Keys.hmacShaKeyFor("your-256-bit-secret-key-your-256-bit-secret-key".getBytes(StandardCharsets.UTF_8));
 
     public String generateToken(UserDetails userDetails) {
-        // Kullanıcının rollerini al ve String olarak listele
         List<String> roles = userDetails.getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
 
         return Jwts.builder()
-                .setSubject(userDetails.getUsername()) // Kullanıcı adı (email)
-                .claim("roles", roles) // Rolleri claims olarak ekle
+                .setSubject(userDetails.getUsername())
+                .claim("roles", roles)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // 1 saatlik geçerlilik
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
                 .signWith(secretKey, SignatureAlgorithm.HS256)
                 .compact();
     }

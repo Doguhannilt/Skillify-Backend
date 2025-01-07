@@ -21,46 +21,12 @@ public class Course {
 
     private Status status;
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public List<String> getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(List<String> language) {
-        this.language = language;
-    }
-
-    private String instructorId;
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getName() {
@@ -71,11 +37,35 @@ public class Course {
         this.name = name;
     }
 
-    public String getInstructorId() {
-        return instructorId;
+    public String getDescription() {
+        return description;
     }
 
-    public void setInstructorId(String instructorId) {
-        this.instructorId = instructorId;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public List<String> getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(List<String> language) {
+        this.language = language;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

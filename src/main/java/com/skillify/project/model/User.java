@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private String id;  // MongoDB id'leri genellikle String türünde olur
+    private String id;
 
     private String name;
 
