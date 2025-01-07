@@ -34,7 +34,7 @@
    - **Task**: Create a dashboard for students to view their enrolled courses and lessons.
    - **Description**: Students should be able to see the list of courses they are enrolled in, along with their respective lessons. They should be able to mark lessons as completed and view their progress.
 
-9. **Instructor Dashboard**
+9. **Instructor Dashboard** ✔
    - **Task**: Create a dashboard for instructors to manage their courses and students.
    - **Description**: Instructors should have a dashboard where they can see the courses they’ve created, manage lessons, and track student enrollments. They should also be able to update or delete lessons.
 
