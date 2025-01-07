@@ -9,10 +9,9 @@ public class Enrollment {
     @Id
     private String id;
 
-    private String courseId;
+    private Long courseId;
 
-    private String studentId;
-
+    private Long studentId;
 
     public String getId() {
         return id;
@@ -22,19 +21,19 @@ public class Enrollment {
         this.id = id;
     }
 
-    public String getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 }

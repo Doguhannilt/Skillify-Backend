@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/courses")
 public class CourseController {
-
     private final CourseServiceImp courseServiceImp;
-    public CourseController(CourseServiceImp courseServiceImp) {
-        this.courseServiceImp = courseServiceImp;
-    }
+    public CourseController(CourseServiceImp courseServiceImp) {this.courseServiceImp = courseServiceImp;}
 
     @PostMapping("/create")
     public ResponseEntity<String> createCourse(@RequestBody Course course) {
