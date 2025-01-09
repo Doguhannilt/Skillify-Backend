@@ -38,7 +38,7 @@
    - **Task**: Create a dashboard for instructors to manage their courses and students.
    - **Description**: Instructors should have a dashboard where they can see the courses they’ve created, manage lessons, and track student enrollments. They should also be able to update or delete lessons.
 
-10. **Admin Panel**
+10. **Admin Panel** ✔
     - **Task**: Implement an admin panel for managing users, courses, and enrollments.
     - **Description**: Admins should be able to view and manage all users (instructors, students) and courses. They should be able to approve/reject courses, enroll students manually, and delete problematic accounts.
 
