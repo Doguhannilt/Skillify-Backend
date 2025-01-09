@@ -42,11 +42,11 @@
     - **Task**: Implement an admin panel for managing users, courses, and enrollments.
     - **Description**: Admins should be able to view and manage all users (instructors, students) and courses. They should be able to approve/reject courses, enroll students manually, and delete problematic accounts.
 
-11. **Course Completion Tracking**
+11. **Course Completion Tracking** ✔
     - **Task**: Implement a system for tracking student course completion.
     - **Description**: Students should be able to track their progress in each course and see whether they’ve completed the course or not. This could involve marking lessons as "completed" once watched or completed.
 
-12. **Payment System Integration**
+12. **Payment System Integration** ✔
     - **Task**: Integrate a payment gateway for course purchases.
     - **Description**: If your platform offers paid courses, integrate a payment system (like Stripe or PayPal) for students to pay for courses. The system should handle course payments and issue receipts.
 
