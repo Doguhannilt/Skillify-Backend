@@ -1,5 +1,6 @@
 package com.skillify.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,6 +23,17 @@ public class Course {
     private Status status;
 
     private String instructorId;
+
+    @JsonIgnore
+    private CompletionStatus completionStatus;
+
+    public CompletionStatus getCompletionStatus() {
+        return completionStatus;
+    }
+
+    public void setCompletionStatus(CompletionStatus completionStatus) {
+        this.completionStatus = completionStatus;
+    }
 
     public String getInstructorId() {
         return instructorId;
