@@ -57,7 +57,7 @@ public class AdminServiceImp implements AdminService {
     @Override
     public ResponseEntity<Course> getCourseById(Course course) throws Exception {
         Optional<Course> byId = courseRepository.findById(course.getId());
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(byId.get());
+        return ResponseEntity.status(HttpStatus.OK).body(byId.get());
     }
 
     @Override
@@ -69,7 +69,7 @@ public class AdminServiceImp implements AdminService {
     @Override
     public ResponseEntity<Lesson> getLessonById(Lesson lesson) throws Exception {
         Optional<Lesson> byId = lessonRepository.findById(lesson.getId());
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(byId.get());
+        return ResponseEntity.status(HttpStatus.OK).body(byId.get());
     }
 
     @Override
