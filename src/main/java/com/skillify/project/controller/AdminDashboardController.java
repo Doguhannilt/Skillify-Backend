@@ -1,10 +1,7 @@
 package com.skillify.project.controller;
 
 
-import com.skillify.project.model.Course;
-import com.skillify.project.model.Enrollment;
-import com.skillify.project.model.Lesson;
-import com.skillify.project.model.User;
+import com.skillify.project.model.*;
 import com.skillify.project.service.AdminServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,14 +28,14 @@ public class AdminDashboardController {
     @GetMapping("/users/{id}")
     public ResponseEntity<Optional<User>> getUserById(@PathVariable Long id) throws Exception {
         User user = new User();
-        user.setId(String.valueOf(id));
+        user.setId(id);
         return adminServiceImp.getUserById(user);
     }
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) throws Exception {
         User user = new User();
-        user.setId(String.valueOf(id));
+        user.setId(id);
         adminServiceImp.deleteUserById(user);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
@@ -51,7 +48,7 @@ public class AdminDashboardController {
     @GetMapping("/courses/{id}")
     public ResponseEntity<Course> getCourseById(@PathVariable Long id) throws Exception {
         Course course = new Course();
-        course.setId(String.valueOf(id));
+        course.setId(id);
         return adminServiceImp.getCourseById(course);
     }
 
@@ -77,6 +74,11 @@ public class AdminDashboardController {
 
     @GetMapping("/enrollments")
     public ResponseEntity<List<Enrollment>> getAllEnrollments() throws Exception {
-        return adminServiceImp.getAllEnrollments(null);
+        return adminServiceImp.getAllEnrollments();
+    }
+
+    @GetMapping("/reviews")
+    public ResponseEntity<List<Review>> getAllReviews() throws Exception{
+        return adminServiceImp.getAllReviews();
     }
 }

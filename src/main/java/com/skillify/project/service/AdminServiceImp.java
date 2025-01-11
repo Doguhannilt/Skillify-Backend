@@ -1,14 +1,8 @@
 package com.skillify.project.service;
 
 import com.skillify.project.interfaces.AdminService;
-import com.skillify.project.model.Course;
-import com.skillify.project.model.Enrollment;
-import com.skillify.project.model.Lesson;
-import com.skillify.project.model.User;
-import com.skillify.project.repository.CourseRepository;
-import com.skillify.project.repository.EnrollmentRepository;
-import com.skillify.project.repository.LessonRepository;
-import com.skillify.project.repository.UserRepository;
+import com.skillify.project.model.*;
+import com.skillify.project.repository.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,12 +17,14 @@ public class AdminServiceImp implements AdminService {
     private final CourseRepository courseRepository;
     private final LessonRepository lessonRepository;
     private final EnrollmentRepository enrollmentRepository;
+    private final ReviewRepository reviewRepository;
 
-    public AdminServiceImp(UserRepository userRepository, CourseRepository courseRepository, LessonRepository lessonRepository, EnrollmentRepository enrollmentRepository) {
+    public AdminServiceImp(UserRepository userRepository, CourseRepository courseRepository, LessonRepository lessonRepository, EnrollmentRepository enrollmentRepository, ReviewRepository reviewRepository) {
         this.userRepository = userRepository;
         this.courseRepository = courseRepository;
         this.lessonRepository = lessonRepository;
         this.enrollmentRepository = enrollmentRepository;
+        this.reviewRepository = reviewRepository;
     }
 
     @Override
@@ -78,8 +74,14 @@ public class AdminServiceImp implements AdminService {
     }
 
     @Override
-    public ResponseEntity<List<Enrollment>> getAllEnrollments(Enrollment enrollment) throws Exception {
+    public ResponseEntity<List<Enrollment>> getAllEnrollments() throws Exception {
         List<Enrollment> all = enrollmentRepository.findAll();
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(all);
+    }
+
+    @Override
+    public ResponseEntity<List<Review>> getAllReviews() {
+        List<Review> all = reviewRepository.findAll();
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(all);
     }
 }

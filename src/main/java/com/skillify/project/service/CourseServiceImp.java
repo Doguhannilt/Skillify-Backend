@@ -33,7 +33,7 @@ public class CourseServiceImp implements CourseService {
             }
 
             // instructorId'yi ObjectId'ye dönüştür
-            ObjectId instructorObjectId = new ObjectId(course.getInstructorId());
+            ObjectId instructorObjectId = new ObjectId(String.valueOf(course.getInstructorId()));
             Optional<User> instructor = userRepository.findById(instructorObjectId);  // findById(ObjectId id) kullanılıyor
 
             if (instructor.isEmpty()) {
@@ -55,7 +55,7 @@ public class CourseServiceImp implements CourseService {
     @Override
     public ResponseEntity<String> deleteCourse(Course course) throws Exception {
         try {
-            String courseId = course.getId();
+            String courseId = String.valueOf(course.getId());
             if(courseId.isEmpty()) {return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Id is not valid"); }
             courseRepository.deleteById(course.getId());
             return ResponseEntity.status(HttpStatus.ACCEPTED).body("Course has been deleted");

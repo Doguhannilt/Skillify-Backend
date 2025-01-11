@@ -1,9 +1,6 @@
 package com.skillify.project.interfaces;
 
-import com.skillify.project.model.Course;
-import com.skillify.project.model.Enrollment;
-import com.skillify.project.model.Lesson;
-import com.skillify.project.model.User;
+import com.skillify.project.model.*;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -18,5 +15,6 @@ public interface AdminService {
     ResponseEntity<List<Lesson>> getAllLessons(Lesson lesson) throws Exception;
     ResponseEntity<Lesson> getLessonById(Lesson lesson) throws Exception;
     void deleteLessonById(Lesson lesson) throws Exception;
-    ResponseEntity<List<Enrollment>> getAllEnrollments(Enrollment enrollment) throws Exception;
+    ResponseEntity<List<Enrollment>> getAllEnrollments() throws Exception;
+    ResponseEntity<List<Review>> getAllReviews() throws Exception;
 }

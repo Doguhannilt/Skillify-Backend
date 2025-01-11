@@ -10,7 +10,7 @@ import java.util.List;
 public class Course {
 
     @Id
-    private String id;
+    private Long id;
 
     private String name;
 
@@ -22,7 +22,7 @@ public class Course {
 
     private Status status;
 
-    private String instructorId;
+    private Long instructorId;
 
     @JsonIgnore
     private CompletionStatus completionStatus;
@@ -35,11 +35,11 @@ public class Course {
         this.completionStatus = completionStatus;
     }
 
-    public String getInstructorId() {
+    public Long getInstructorId() {
         return instructorId;
     }
 
-    public void setInstructorId(String instructorId) {
+    public void setInstructorId(Long instructorId) {
         this.instructorId = instructorId;
     }
 
@@ -47,7 +47,7 @@ public class Course {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

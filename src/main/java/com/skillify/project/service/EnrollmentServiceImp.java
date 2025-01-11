@@ -49,6 +49,6 @@ public class EnrollmentServiceImp implements EnrollmentService {
     @Override
     public ResponseEntity<String> deleteEnrollment(Enrollment enrollment) throws Exception {
         enrollmentRepository.deleteById(Long.valueOf(enrollment.getId()));
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(enrollment.getId());
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(String.valueOf(enrollment.getId()));
     }
 }
