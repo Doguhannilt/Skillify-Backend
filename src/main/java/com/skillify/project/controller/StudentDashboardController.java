@@ -1,6 +1,6 @@
 package com.skillify.project.controller;
 
-import com.skillify.project.model.Enrollment;
+import com.skillify.project.model.Course;
 import com.skillify.project.service.StudentDashboardServiceImp;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class StudentDashboardController {
     }
 
     @GetMapping("/courses")
-    public ResponseEntity<List<Enrollment>> getEnrolledCourses(@RequestParam Long studentId) {
+    public ResponseEntity<List<Course>> getEnrolledCourses(@RequestParam Long studentId) {
         return ResponseEntity.ok(dashboardService.getEnrolledCourses(studentId));
     }
 

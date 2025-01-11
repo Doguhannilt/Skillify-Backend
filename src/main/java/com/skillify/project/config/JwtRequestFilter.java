@@ -70,7 +70,5 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
         return null;
     }
-
-
 }
 

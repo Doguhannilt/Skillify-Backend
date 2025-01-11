@@ -20,7 +20,7 @@ public class EnrollmentServiceImp implements EnrollmentService {
     private final UserRepository userRepository;
     private final CourseRepository courseRepository;
 
-    public EnrollmentServiceImp(EnrollmentRepository enrollmentRepository, UserRepository userRepository, CourseRepository courseRepository) {
+    public EnrollmentServiceImp(EnrollmentRepository enrollmentRepository, UserRepository userRepository, CourseRepository courseRepository, EmailServiceImp emailServiceImp) {
         this.enrollmentRepository = enrollmentRepository;
         this.userRepository = userRepository;
         this.courseRepository = courseRepository;

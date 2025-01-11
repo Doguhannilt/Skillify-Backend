@@ -52,5 +52,4 @@ public class ReviewServiceImp implements ReviewService {
         reviewRepository.deleteById(id); // Sadece ID'yi geçiyoruz.
         return ResponseEntity.status(HttpStatus.OK).body("Review deleted successfully");
     }
-
 }

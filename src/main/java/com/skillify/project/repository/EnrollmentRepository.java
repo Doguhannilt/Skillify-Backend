@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface EnrollmentRepository extends MongoRepository<Enrollment, Long> {
     List<Enrollment> findByStudentId(Long studentId);
+    
 }
