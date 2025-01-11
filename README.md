@@ -50,11 +50,11 @@
     - **Task**: Integrate a payment gateway for course purchases.
     - **Description**: If your platform offers paid courses, integrate a payment system (like Stripe or PayPal) for students to pay for courses. The system should handle course payments and issue receipts.
 
-13. **Course Rating and Review System**
+13. **Course Rating and Review System** ✔
     - **Task**: Implement a rating and review system for courses.
     - **Description**: After completing a course, students should be able to rate the course and leave a review. This will help other students to make informed decisions.
 
-14. **Notification System**
+14. **Notification System** ✔
     - **Task**: Implement a notification system for course updates, enrollment, and other important actions.
     - **Description**: Students and instructors should receive notifications (via email or platform notifications) when certain actions take place, such as when a student enrolls in a course or a new lesson is added.
 
