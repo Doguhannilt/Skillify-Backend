@@ -62,11 +62,11 @@
     - **Task**: Ensure that the platform is fully responsive and mobile-friendly.
     - **Description**: The website should be optimized for both desktop and mobile devices, ensuring a smooth experience for users on all screen sizes.
 
-16. **Analytics and Reports for Admins**
+16. **Analytics and Reports for Admins** ✔
     - **Task**: Implement analytics and reporting for admins.
     - **Description**: Admins should be able to view reports on active users, popular courses, enrollments, and payments. This data should be presented in an easy-to-read format, like graphs or tables.
 
-17. **Security and Data Protection**
+17. **Security and Data Protection** ✔
     - **Task**: Ensure that all user data, including passwords and personal information, is securely stored and transmitted.
     - **Description**: Implement encryption, secure data storage practices, and proper authorization checks to ensure the platform is secure and compliant with data protection regulations.
 
@@ -85,7 +85,7 @@
    - **Spring Security**: A comprehensive security framework to handle authentication, authorization, and role-based access control (RBAC). It ensures that only authorized users can access specific resources (e.g., instructors can create courses, students can enroll).
    - **JWT (JSON Web Token)**: A stateless authentication mechanism for securely transmitting information between the client and the server. JWT will be used for login and session management.
 
-4. **Payment System**
+4. **Payment System** 
    - **Stripe** or **PayPal**: For integrating a payment gateway to handle course purchases. Both Stripe and PayPal provide SDKs for easy integration into backend systems for secure payment processing.
 
 5. **Notification System**
@@ -95,35 +95,32 @@
 6. **API Documentation**
    - **Swagger/OpenAPI**: To document and test APIs. Swagger provides an interactive interface to explore the platform’s RESTful services, making it easier to test endpoints and understand how the system works.
 
-7. **Caching**
-   - **Redis**: A powerful caching solution to optimize frequently accessed data, such as course lists or user session information, improving performance by reducing database queries.
-
-8. **Logging**
+7. **Logging**
    - **SLF4J with Logback**: For logging application events and errors. This is crucial for debugging and maintaining the system in a production environment.
 
-9. **Version Control**
+8. **Version Control**
     - **Git**: For version control, collaborating, and maintaining the source code repository.
     - **GitHub** or **GitLab**: Platforms for hosting the source code and collaborating with teams.
 
-10. **Deployment**
+9. **Deployment**
     - **Docker**: For containerization of the application. Docker ensures that the platform is easily portable and can run in any environment, from local development to production.
     - **Kubernetes** (Optional): If deploying on a large scale, Kubernetes can manage and orchestrate the deployment of the application containers.
     - **AWS** or **Heroku**: Cloud platforms for hosting the backend, database, and other services.
 
-11. **Development Tools**
+10. **Development Tools**
     - **IntelliJ IDEA** or **VS Code**: IDEs to write and debug Java code. IntelliJ IDEA offers excellent support for Spring Boot development, while VS Code is great for a lighter, more customizable experience.
     - **Postman**: A tool for testing API endpoints during development, making it easier to simulate requests and validate responses.
 
-12. **Unit and Integration Testing**
+11. **Unit and Integration Testing**
     - **JUnit 5**: For writing unit tests to ensure the correctness of individual components in the system.
     - **Mockito**: For mocking dependencies in tests and simulating the behavior of external systems (e.g., databases, APIs).
     - **Spring Test**: For testing Spring components and services.
 
-13. **Data Protection and Encryption**
+12. **Data Protection and Encryption**
     - **BCrypt**: For securely hashing and storing user passwords to prevent unauthorized access.
     - **TLS/SSL**: For encrypting data in transit, ensuring that sensitive information such as passwords and payment details are securely transmitted between the client and the server.
 
-14. **CI/CD Pipeline**
+13. **CI/CD Pipeline**
     - **Jenkins** or **GitHub Actions**: For setting up Continuous Integration and Continuous Deployment pipelines to automate testing and deployment processes.
 
 ### Database Schema
