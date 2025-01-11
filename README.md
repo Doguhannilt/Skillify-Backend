@@ -62,11 +62,11 @@
     - **Task**: Ensure that the platform is fully responsive and mobile-friendly.
     - **Description**: The website should be optimized for both desktop and mobile devices, ensuring a smooth experience for users on all screen sizes.
 
-16. **Analytics and Reports for Admins**
+16. **Analytics and Reports for Admins** ✔
     - **Task**: Implement analytics and reporting for admins.
     - **Description**: Admins should be able to view reports on active users, popular courses, enrollments, and payments. This data should be presented in an easy-to-read format, like graphs or tables.
 
-17. **Security and Data Protection**
+17. **Security and Data Protection** ✔
     - **Task**: Ensure that all user data, including passwords and personal information, is securely stored and transmitted.
     - **Description**: Implement encryption, secure data storage practices, and proper authorization checks to ensure the platform is secure and compliant with data protection regulations.
 
@@ -85,7 +85,7 @@
    - **Spring Security**: A comprehensive security framework to handle authentication, authorization, and role-based access control (RBAC). It ensures that only authorized users can access specific resources (e.g., instructors can create courses, students can enroll).
    - **JWT (JSON Web Token)**: A stateless authentication mechanism for securely transmitting information between the client and the server. JWT will be used for login and session management.
 
-4. **Payment System**
+4. **Payment System** 
    - **Stripe** or **PayPal**: For integrating a payment gateway to handle course purchases. Both Stripe and PayPal provide SDKs for easy integration into backend systems for secure payment processing.
 
 5. **Notification System**
