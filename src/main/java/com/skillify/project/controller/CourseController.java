@@ -44,7 +44,7 @@ public class CourseController {
             }
 
             // Return created course ID as a success response
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdCourse.getId());
+            return ResponseEntity.status(HttpStatus.CREATED).body("Course is created");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }

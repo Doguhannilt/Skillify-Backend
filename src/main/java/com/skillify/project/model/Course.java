@@ -43,7 +43,7 @@ public class Course {
         this.instructorId = instructorId;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

@@ -22,7 +22,7 @@ public class CourseServiceImp implements CourseService {
     private final CourseRepository courseRepository;
     private final MailSender mailSender;
 
-    public CourseServiceImp(UserRepository userRepository, CourseRepository courseRepository, EmailServiceImp emailServiceImp, MailSender mailSender) {
+    public CourseServiceImp(UserRepository userRepository, CourseRepository courseRepository, MailSender mailSender) {
         this.userRepository = userRepository;
         this.courseRepository = courseRepository;
         this.mailSender = mailSender;
@@ -48,11 +48,12 @@ public class CourseServiceImp implements CourseService {
             newCourse.setInstructorId(course.getInstructorId());
 
             String instructorEmail = instructor.get().getEmail();
-            mailSender.sendEmailToInstructor(instructor, course, instructorEmail, "Course is created");
+            // Send email to instructor upon course creation
+            mailSender.sendEmailToInstructor(instructor, course, instructorEmail,"Your course has been successfully created.");
 
             return courseRepository.save(newCourse);
         } catch (Exception e) {
-            out.println("Error while creating course: " + e.getMessage());
+            System.out.println("Error while creating course: " + e.getMessage());
             return null;
         }
     }
@@ -61,12 +62,15 @@ public class CourseServiceImp implements CourseService {
     public ResponseEntity<String> deleteCourse(Course course) throws Exception {
         try {
             String courseId = String.valueOf(course.getId());
-            if(courseId.isEmpty()) {return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Id is not valid"); }
-            courseRepository.deleteById(course.getId());
+            if (courseId.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Id is not valid");
+            }
+            courseRepository.deleteById(String.valueOf(course.getId()));
 
             Optional<User> instructor = userRepository.findById(course.getInstructorId());
             String instructorEmail = instructor.get().getEmail();
-            mailSender.sendEmailToInstructor(instructor, course, instructorEmail, "Course is deleted");
+            // Send email to instructor upon course deletion
+            mailSender.sendEmailToInstructor(instructor, course,instructorEmail, "Your course has been deleted.");
 
             return ResponseEntity.status(HttpStatus.ACCEPTED).body("Course has been deleted");
         } catch (Exception e) {
@@ -77,8 +81,10 @@ public class CourseServiceImp implements CourseService {
     @Override
     public ResponseEntity<String> updateCourse(Course course) {
         try {
-            Optional<Course> existingCourse = courseRepository.findById(course.getId());
-            if (existingCourse.isEmpty()) {throw new Exception("Course not found");}
+            Optional<Course> existingCourse = courseRepository.findById(String.valueOf(course.getId()));
+            if (existingCourse.isEmpty()) {
+                throw new Exception("Course not found");
+            }
 
             Course courseToUpdate = existingCourse.get();
             courseToUpdate.setName(course.getName());

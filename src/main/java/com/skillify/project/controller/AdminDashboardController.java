@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,4 +82,29 @@ public class AdminDashboardController {
     public ResponseEntity<List<Review>> getAllReviews() throws Exception{
         return adminServiceImp.getAllReviews();
     }
+
+    @GetMapping("/popular-courses")
+    public ResponseEntity<List<Course>> getPopularCourses() throws Exception {
+        List<Course> popularCourses = adminServiceImp.getPopularCourses().getBody();
+        return ResponseEntity.status(HttpStatus.OK).body(popularCourses);
+    }
+
+    @GetMapping("/active-users")
+    public ResponseEntity<List<User>> getActiveUsers() throws Exception {
+        List<User> activeUsers = adminServiceImp.getActiveUsers().getBody();
+        return ResponseEntity.status(HttpStatus.OK).body(activeUsers);
+    }
+
+    @GetMapping("/enrollments/range")
+    public ResponseEntity<List<Enrollment>> getEnrollmentsWithinRange(
+            @RequestParam("startDate") String startDate,
+            @RequestParam("endDate") String endDate) throws Exception {
+
+        LocalDate start = LocalDate.parse(startDate);
+        LocalDate end = LocalDate.parse(endDate);
+
+        List<Enrollment> enrollments = adminServiceImp.getEnrollmentsWithinRange(start, end).getBody();
+        return ResponseEntity.status(HttpStatus.OK).body(enrollments);
+    }
+
 }

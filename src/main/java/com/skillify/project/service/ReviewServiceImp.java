@@ -34,7 +34,7 @@ public class ReviewServiceImp implements ReviewService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
         }
 
-        Optional<Course> isCourseValid = courseRepository.findById(review.getCourse().getId());
+        Optional<Course> isCourseValid = courseRepository.findById(String.valueOf(review.getCourse().getId()));
         if (isCourseValid.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course not found");
         }

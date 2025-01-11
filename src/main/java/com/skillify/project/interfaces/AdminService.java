@@ -3,6 +3,7 @@ package com.skillify.project.interfaces;
 import com.skillify.project.model.*;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,4 +18,7 @@ public interface AdminService {
     void deleteLessonById(Lesson lesson) throws Exception;
     ResponseEntity<List<Enrollment>> getAllEnrollments() throws Exception;
     ResponseEntity<List<Review>> getAllReviews() throws Exception;
+    ResponseEntity<List<Course>> getPopularCourses() throws Exception;
+    ResponseEntity<List<User>> getActiveUsers() throws Exception;
+    ResponseEntity<List<Enrollment>> getEnrollmentsWithinRange(LocalDate startDate, LocalDate endDate) throws Exception;
 }

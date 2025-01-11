@@ -31,7 +31,7 @@ public class SearchServiceImp implements SearchService {
 
     @Override
     public ResponseEntity<List<Course>> filterByInstructorName(String instructorName) {
-        List<Course> courses = courseRepository.findByInstructorNameContainingIgnoreCase(instructorName);
+        List<Course> courses = courseRepository.findByNameContainingIgnoreCase(instructorName);
         return ResponseEntity.ok(courses);
     }
 }

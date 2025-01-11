@@ -7,8 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class AdminServiceImp implements AdminService {
@@ -52,7 +53,7 @@ public class AdminServiceImp implements AdminService {
 
     @Override
     public ResponseEntity<Course> getCourseById(Course course) throws Exception {
-        Optional<Course> byId = courseRepository.findById(course.getId());
+        Optional<Course> byId = courseRepository.findById(String.valueOf(course.getId()));
         return ResponseEntity.status(HttpStatus.OK).body(byId.get());
     }
 
@@ -84,4 +85,36 @@ public class AdminServiceImp implements AdminService {
         List<Review> all = reviewRepository.findAll();
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(all);
     }
+
+    @Override
+    public ResponseEntity<List<Course>> getPopularCourses() throws Exception {
+        List<Enrollment> enrollments = enrollmentRepository.findAll();
+
+        Map<Long, Long> courseEnrollmentCount = new HashMap<>();
+        for (Enrollment enrollment : enrollments) {
+            courseEnrollmentCount.put(enrollment.getCourseId(),
+                    courseEnrollmentCount.getOrDefault(enrollment.getCourseId(), 0L) + 1);
+        }
+        List<Course> popularCourses = courseRepository.findAll().stream()
+                .filter(course -> courseEnrollmentCount.containsKey(course.getId()))
+                .sorted(Comparator.comparingLong(course -> courseEnrollmentCount.get(course.getId())))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.status(HttpStatus.OK).body(popularCourses);
+    }
+
+    @Override
+    public ResponseEntity<List<User>> getActiveUsers() throws Exception {
+        LocalDate thirtyDaysAgo = LocalDate.now().minusDays(10);
+        List<User> activeUsers = userRepository.findByLastLoginAfter(thirtyDaysAgo);
+        return ResponseEntity.status(HttpStatus.OK).body(activeUsers);
+    }
+
+    @Override
+    public ResponseEntity<List<Enrollment>> getEnrollmentsWithinRange(LocalDate startDate, LocalDate endDate) throws Exception {
+        List<Enrollment> enrollments = enrollmentRepository.findByEnrollmentDateBetween(startDate, endDate);
+        return ResponseEntity.status(HttpStatus.OK).body(enrollments);
+    }
+
+
 }

@@ -52,7 +52,7 @@ public class LessonServiceImp implements LessonService {
 
             lessonRepository.save(lesson);
 
-            String instructorEmail = instructor.get().getEmail();
+            String instructorEmail = String.valueOf(instructor.get().getEmail());
             mailSender.sendEmailToInstructor(instructor, course, instructorEmail, "Lesson is created");
 
             return ResponseEntity.status(HttpStatus.CREATED)

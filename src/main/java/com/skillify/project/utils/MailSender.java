@@ -3,10 +3,12 @@ package com.skillify.project.utils;
 import com.skillify.project.model.Course;
 import com.skillify.project.model.User;
 import com.skillify.project.service.EmailServiceImp;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
+@Service("customMailSender")
 public class MailSender {
     private final EmailServiceImp emailServiceImp;
 
@@ -25,5 +27,6 @@ public class MailSender {
         emailServiceImp.sendEmail(instructorEmail, subject, body);
     }
 }
+
 
 
