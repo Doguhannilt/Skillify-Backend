@@ -150,17 +150,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
 				<configuration>
-					<!-- JAVA 17 için 'source' ve 'target'ı belirleyin -->
-					<source>17</source>
-					<target>17</target>
-
-					<compilerArgument>-source</compilerArgument>
-					<compilerArgument>17</compilerArgument>
-					<compilerArgument>-target</compilerArgument>
-					<compilerArgument>17</compilerArgument>
+					<release>17</release>
 				</configuration>
 			</plugin>
-		</plugins> 
+		</plugins>
 	</build>
 
 </project>
