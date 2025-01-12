@@ -27,6 +27,17 @@ public class Course {
     @JsonIgnore
     private CompletionStatus completionStatus;
 
+    private List<Long> lessonIds;
+
+
+    public List<Long> getLessonIds() {
+        return lessonIds;
+    }
+
+    public void setLessonIds(List<Long> lessonIds) {
+        this.lessonIds = lessonIds;
+    }
+
     public CompletionStatus getCompletionStatus() {
         return completionStatus;
     }

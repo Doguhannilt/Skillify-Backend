@@ -50,7 +50,9 @@ public class LessonServiceImp implements LessonService {
                 lesson.setVideoUrl(videoUrl);
                 }
 
-            lessonRepository.save(lesson);
+            Lesson save = lessonRepository.save(lesson);
+            course.getLessonIds().add(save.getId());
+            courseRepository.save(course);
 
             String instructorEmail = String.valueOf(instructor.get().getEmail());
             mailSender.sendEmailToInstructor(instructor, course, instructorEmail, "Lesson is created");

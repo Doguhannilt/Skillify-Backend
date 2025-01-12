@@ -3,6 +3,8 @@ package com.skillify.project.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 public class Lesson {
 
@@ -18,6 +20,7 @@ public class Lesson {
     private Long courseId;
 
     private Boolean status;
+
 
     public Boolean getStatus() {
         return status;
