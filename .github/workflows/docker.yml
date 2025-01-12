@@ -37,7 +37,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/myapp:latest -f- . <<EOF
-          FROM openjdk:17-jdk-slim
+          FROM openjdk:8-jdk-slim
           COPY target/*.jar app.jar
           ENTRYPOINT ["java", "-jar", "/app.jar"]
           EOF
