@@ -2,6 +2,7 @@ package com.skillify.project.controller;
 
 import com.skillify.project.model.Course;
 import com.skillify.project.service.InstructorDashboardServiceImp;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ public class InstructorDashboardController {
         this.instructorDashboardServiceImp = dashboardService;
     }
 
+	// Getting courses by instructorId
+    @Operation(summary = "Get Courses", description = "Get Courses By Instructor Id")
     @GetMapping("/courses")
     public ResponseEntity<List<Course>> getInstructorCourses(@RequestParam Long instructorId) throws Exception {
         return ResponseEntity.ok(instructorDashboardServiceImp.getInstructorCourses(instructorId));

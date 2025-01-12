@@ -5,6 +5,7 @@ import com.skillify.project.service.CourseServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/api/courses")
@@ -17,6 +18,9 @@ public class CourseController {
         this.courseServiceImp = courseServiceImp;
     }
 
+
+	// Create a course
+    @Operation(summary = "Create a new course")
     @PostMapping("/create")
     public ResponseEntity<String> createCourse(@RequestBody Course course) {
         try {
@@ -50,6 +54,8 @@ public class CourseController {
         }
     }
 
+	// Delete a course
+    @Operation(summary = "Delete a course")
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteCourse(@RequestBody Course course) {
         try {
@@ -62,6 +68,8 @@ public class CourseController {
         }
     }
 
+	// Update a course
+    @Operation(summary = "Update course")
     @PutMapping("/update")
     public ResponseEntity<String> updateCourse(@RequestBody Course course) {
         try {

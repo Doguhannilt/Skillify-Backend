@@ -2,6 +2,7 @@ package com.skillify.project.controller;
 
 import com.skillify.project.interfaces.LessonService;
 import com.skillify.project.model.Lesson;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,8 @@ public class LessonController {
         this.lessonService = lessonService;
     }
 
+	// Create a
+    @Operation(summary = "Create a lesson")
     @PostMapping("/create")
     public ResponseEntity<String> createLesson(
             @ModelAttribute Lesson lesson,
@@ -28,6 +31,8 @@ public class LessonController {
         }
     }
 
+	// Delete a lesson by id
+    @Operation(summary = "Delete a lesson by id")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteLesson(@PathVariable Long id) {
         try {
@@ -39,6 +44,8 @@ public class LessonController {
         }
     }
 
+	// Update a lesson
+    @Operation(summary = "Update a lesson")
     @PutMapping("/update")
     public ResponseEntity<String> updateLesson(
             @ModelAttribute Lesson lesson,

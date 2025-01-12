@@ -36,6 +36,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/instructor/dashboard/**").hasRole("INSTRUCTOR")
                         .requestMatchers("/api/admin/dashboard/**").hasRole("ADMIN")
                         .requestMatchers("/api/review/**").hasAnyRole("INSTRUCTOR", "ADMIN","STUDENT")
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthenticationEntryPoint))
