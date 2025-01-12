@@ -51,4 +51,17 @@ public class EnrollmentServiceImp implements EnrollmentService {
         enrollmentRepository.deleteById(Long.valueOf(enrollment.getId()));
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(String.valueOf(enrollment.getId()));
     }
+
+    @Override
+    public boolean isCourseCompleted(Long enrollmentId) throws Exception {
+        Optional<Enrollment> enrollmentOptional = enrollmentRepository.findById(enrollmentId);
+        if (enrollmentOptional.isEmpty()) {
+            throw new Exception("Enrollment not found");
+        }
+
+        Enrollment enrollment = enrollmentOptional.get();
+
+        return Enrollment.getLessonCompletionStatus().values().stream().allMatch(Boolean::booleanValue);
+    }
+
 }

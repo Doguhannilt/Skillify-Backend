@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 @Document
 public class Enrollment {
@@ -16,6 +17,17 @@ public class Enrollment {
     private Long studentId;
 
     private LocalDate enrollmentDate;
+
+    private static Map<Long, Boolean> lessonCompletionStatus; // Ders ID ve tamamlanma durumu
+
+
+    public static Map<Long, Boolean> getLessonCompletionStatus() {
+        return lessonCompletionStatus;
+    }
+
+    public void setLessonCompletionStatus(Map<Long, Boolean> lessonCompletionStatus) {
+        this.lessonCompletionStatus = lessonCompletionStatus;
+    }
 
     public LocalDate getEnrollmentDate() {
         return enrollmentDate;
