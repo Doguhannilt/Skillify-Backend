@@ -178,6 +178,3 @@ This repository contains the code for an Online Course Management Platform devel
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-This README provides an in-depth look at the tasks, technologies, and setup process for the Online Course Management Platform. Feel free to customize it further based on your specific project needs!
