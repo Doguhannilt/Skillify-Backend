@@ -160,7 +160,7 @@
 					<compilerArgument>17</compilerArgument>
 				</configuration>
 			</plugin>
-		</plugins>
+		</plugins> 
 	</build>
 
 </project>
