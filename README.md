@@ -146,10 +146,10 @@ This repository contains the code for an Online Course Management Platform devel
 
 ### Prerequisites
 
-- Java 8 or higher
+- Java **17**
 - Spring Boot
-- MySQL or PostgreSQL
-- Docker (Optional, for containerization)
+- MongoDB
+- Docker
 - Stripe/PayPal for payment integration (Optional)
 
 ### Installation
