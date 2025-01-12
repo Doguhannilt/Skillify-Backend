@@ -42,8 +42,8 @@ jobs:
           ENV CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }}
           ENV CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
           ENV CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
-          ENTRYPOINT [\"java\", \"-jar\", \"/app.jar\"]" | docker build -t myapp:latest -f- .
-
+          ENTRYPOINT [\"java\", \"-jar\", \"/app.jar\"]" | docker build -t doguhannilt/myapp:latest -f- .
+      
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+          docker push doguhannilt/myapp:latest
