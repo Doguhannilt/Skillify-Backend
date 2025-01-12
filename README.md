@@ -102,7 +102,7 @@
     - **Git**: For version control, collaborating, and maintaining the source code repository.
     - **GitHub** or **GitLab**: Platforms for hosting the source code and collaborating with teams.
 
-9. **Deployment**
+9. **Deployment** ✔
     - **Docker**: For containerization of the application. Docker ensures that the platform is easily portable and can run in any environment, from local development to production.
     - **Kubernetes** (Optional): If deploying on a large scale, Kubernetes can manage and orchestrate the deployment of the application containers.
     - **AWS** or **Heroku**: Cloud platforms for hosting the backend, database, and other services.
@@ -120,7 +120,7 @@
     - **BCrypt**: For securely hashing and storing user passwords to prevent unauthorized access.
     - **TLS/SSL**: For encrypting data in transit, ensuring that sensitive information such as passwords and payment details are securely transmitted between the client and the server.
 
-13. **CI/CD Pipeline**
+13. **CI/CD Pipeline** ✔
     - **Jenkins** or **GitHub Actions**: For setting up Continuous Integration and Continuous Deployment pipelines to automate testing and deployment processes.
 
 ### Database Schema
