@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Course Management Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+          font-family: 'Roboto', sans-serif;
+          line-height: 1.6;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f9f9;
+          color: #333;
+        }
+        h1, h2, h3 {
+          color: #FFF;
+        }
+
+        /* Header */
+        header {
+          background-color: #2d3a45;
+          color: white;
+          padding: 20px 0;
+          text-align: center;
+        }
+
+        /* Main Section */
+        main {
+          padding: 30px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        /* Task List Styles */
+        .task-list {
+          list-style-type: none;
+          padding: 0;
+        }
+
+        .task-list li {
+          background-color: #fff;
+          padding: 20px;
+          margin-bottom: 15px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .task-list li span {
+          font-weight: bold;
+          color: #2d3a45;
+        }
+
+        .task-list li .description {
+          color: #666;
+          margin-top: 5px;
+        }
+
+        .task-list li.completed {
+          border-left: 5px solid #28a745;
+        }
+
+        /* Button Style */
+        .btn {
+          background-color: #28a745;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+          background-color: #218838;
+        }
+
+        /* Footer */
+        footer {
+          background-color: #2d3a45;
+          color: white;
+          text-align: center;
+          padding: 10px;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Online Course Management Platform</h1>
+    <p>Track tasks and technologies for platform development</p>
+</header>
+
+<main>
+    <h2>Tasks for Online Course Management Platform</h2>
+    <ul class="task-list">
+        <li class="completed">
+            <span>User Registration and Authentication ✔</span>
+            <p class="description">Users can sign up with email, password, and name. Passwords will be encrypted securely.</p>
+        </li>
+        <li class="completed">
+            <span>User Role Management ✔</span>
+            <p class="description">Supports multiple roles: Instructor, Student, Admin with different platform access.</p>
+        </li>
+        <li class="completed">
+            <span>Login and JWT Authentication ✔</span>
+            <p class="description">Users log in using email and password and receive a JWT token for authentication.</p>
+        </li>
+        <li class="completed">
+            <span>Course Creation and Management ✔</span>
+            <p class="description">Instructors can create courses by providing details like title, description, and category. They can also edit or delete courses.</p>
+        </li>
+        <li class="completed">
+            <span>Course Enrollment ✔</span>
+            <p class="description">Students can browse available courses and enroll. They can also check if the course is full.</p>
+        </li>
+        <li class="completed">
+            <span>Lesson Management ✔</span>
+            <p class="description">Instructors can add lessons to their courses, including titles, content, and optional video URLs.</p>
+        </li>
+        <li class="completed">
+            <span>Course List and Search ✔</span>
+            <p class="description">Students can search and filter courses by name, category, or instructor. Paginated course list for large numbers.</p>
+        </li>
+        <li class="completed">
+            <span>Student Dashboard ✔</span>
+            <p class="description">Students can view their enrolled courses, mark lessons as completed, and track their progress.</p>
+        </li>
+        <li class="completed">
+            <span>Instructor Dashboard ✔</span>
+            <p class="description">Instructors can manage their courses and students, view enrollments, and update/delete lessons.</p>
+        </li>
+        <li class="completed">
+            <span>Admin Panel ✔</span>
+            <p class="description">Admins can manage users, courses, enrollments, approve/reject courses, and manually enroll students.</p>
+        </li>
+        <li class="completed">
+            <span>Course Completion Tracking ✔</span>
+            <p class="description">Students can track their progress, marking lessons as completed to show course completion.</p>
+        </li>
+        <li class="completed">
+            <span>Payment System Integration ✔</span>
+            <p class="description">Integration with Stripe or PayPal for course purchases, handling payments and issuing receipts.</p>
+        </li>
+        <li class="completed">
+            <span>Course Rating and Review System ✔</span>
+            <p class="description">Students can rate and review courses after completing them, helping other students make informed decisions.</p>
+        </li>
+        <li class="completed">
+            <span>Notification System ✔</span>
+            <p class="description">Notifications for course updates, enrollments, and other important actions (email or platform notifications).</p>
+        </li>
+        <li class="completed">
+            <span>Responsive Design ✔</span>
+            <p class="description">Fully optimized for desktop and mobile devices, ensuring a smooth experience for all screen sizes.</p>
+        </li>
+        <li class="completed">
+            <span>Analytics and Reports for Admins ✔</span>
+            <p class="description">Admins can view reports on active users, popular courses, enrollments, and payments in easy-to-read graphs/tables.</p>
+        </li>
+        <li class="completed">
+            <span>Security and Data Protection ✔</span>
+            <p class="description">All user data, including passwords, is securely stored and transmitted with encryption and authorization checks.</p>
+        </li>
+    </ul>
+
+    <h2>Technologies for Online Course Management Platform</h2>
+    <ul class="task-list">
+        <li class="completed">
+            <span>Spring Boot ✔</span>
+            <p class="description">Backend framework for building RESTful APIs, managing security, and user data.</p>
+        </li>
+        <li class="completed">
+            <span>MySQL or PostgreSQL ✔</span>
+            <p class="description">Relational databases to store user, course, lesson, and enrollment data.</p>
+        </li>
+        <li class="completed">
+            <span>Spring Security ✔</span>
+            <p class="description">Comprehensive security framework for authentication, authorization, and role-based access control (RBAC).</p>
+        </li>
+        <li class="completed">
+            <span>JWT ✔</span>
+            <p class="description">Stateless authentication using JSON Web Tokens for secure communication between the client and the server.</p>
+        </li>
+        <li class="completed">
+            <span>Stripe or PayPal ✔</span>
+            <p class="description">Payment gateways for handling course purchases, payments, and receipts.</p>
+        </li>
+        <li class="completed">
+            <span>Spring Integration or Spring Kafka ✔</span>
+            <p class="description">Frameworks for implementing asynchronous messaging for notifications via email or platform notifications.</p>
+        </li>
+        <li class="completed">
+            <span>JavaMail API ✔</span>
+            <p class="description">For sending confirmation emails, notifications, and course updates to users.</p>
+        </li>
+        <li class="completed">
+            <span>Swagger/OpenAPI ✔</span>
+            <p class="description">For API documentation, providing an interactive interface to test and explore the platform’s services.</p>
+        </li>
+        <li class="completed">
+            <span>SLF4J with Logback ✔</span>
+            <p class="description">For logging application events and errors to monitor and debug the system.</p>
+        </li>
+        <li class="completed">
+            <span>Git ✔</span>
+            <p class="description">For version control and collaborating on the platform’s source code repository.</p>
+        </li>
+        <li class="completed">
+            <span>Docker ✔</span>
+            <p class="description">For containerizing the application, ensuring portability across different environments.</p>
+        </li>
+        <li class="completed">
+            <span>AWS or Heroku ✔</span>
+            <p class="description">Cloud platforms for hosting the application, database, and other services.</p>
+        </li>
+        <li class="completed">
+            <span>IntelliJ IDEA or VS Code ✔</span>
+            <p class="description">IDE support for Java development and debugging. IntelliJ is excellent for Spring Boot development.</p>
+        </li>
+        <li class="completed">
+            <span>JUnit 5 ✔</span>
+            <p class="description">For writing unit tests for application functionality, ensuring code reliability and stability.</p>
+        </li>
+        <li class="completed">
+            <span>Tailwind CSS ✔</span>
+            <p class="description">For responsive, utility-first CSS styling that makes building UI components faster and easier.</p>
+        </li>
+    </ul>
+
+    <a href="https://github.com/Doguhannilt/Skillify-Backend" class="btn">Learn More</a>
+</main>
+
+</body>
+</html>
