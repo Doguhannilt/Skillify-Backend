@@ -164,6 +164,33 @@ This repository contains the code for an Online Course Management Platform devel
 2. Set up the database (MySQL/PostgreSQL):
    - Create a database for the platform and update the `application.properties` file with the database connection details.
 
+```
+spring.application.name=
+spring.data.mongodb.uri=
+spring.data.mongodb.database=
+
+
+cloudinary.cloud_name=
+cloudinary.api_key=
+cloudinary.api_secret=
+
+stripe_api_key=
+
+logging.level.org.springframework.security=
+logging.level.org.springframework=
+logging.level.com.skillify.project=
+
+spring.mail.host=
+spring.mail.port=
+spring.mail.username=
+spring.mail.password=
+spring.mail.protocol=
+spring.mail.smtp.auth=
+spring.mail.smtp.starttls.enable=
+spring.mail.smtp.ssl.protocols=
+
+```
+
 3. Build and run the application:
 
    ```bash
@@ -172,6 +199,9 @@ This repository contains the code for an Online Course Management Platform devel
    ```
 
 4. Access the platform in your browser at `http://localhost:8080`.
+
+This project is built with **Java 17 (LTS)**, which provides long-term support and various performance and language improvements.
+
 
 
 ## **License**
