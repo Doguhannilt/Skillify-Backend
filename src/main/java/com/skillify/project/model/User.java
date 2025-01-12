@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Document
 public class User {
@@ -18,7 +19,26 @@ public class User {
     private String password;
 
     private Role role;
-    private LocalDate lastLogin;  // lastLogin alanı
+    private LocalDate lastLogin;
+
+    private Long totalPoints = 0L;
+    private List<Long> earnedBadges;
+
+    public Long getTotalPoints() {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(Long totalPoints) {
+        this.totalPoints = totalPoints;
+    }
+
+    public List<Long> getEarnedBadges() {
+        return earnedBadges;
+    }
+
+    public void setEarnedBadges(List<Long> earnedBadges) {
+        this.earnedBadges = earnedBadges;
+    }
 
     public LocalDate getLastLogin() {
         return lastLogin;

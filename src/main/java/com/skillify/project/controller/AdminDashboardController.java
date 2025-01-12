@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequestMapping("/api/admin/dashboard")
 public class AdminDashboardController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AdminDashboardController.class);  // Logger nesnesi oluşturuluyor
+    private static final Logger logger = LoggerFactory.getLogger(AdminDashboardController.class);
 
     private final AdminServiceImp adminServiceImp;
 
