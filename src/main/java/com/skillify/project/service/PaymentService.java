@@ -17,7 +17,7 @@ public class PaymentService {
         Stripe.apiKey = key;
     }
 
-    public String createCheckoutSession(String courseName, Long amount) throws StripeException {
+    public String createCheckoutSession(String courseName, int amount) throws StripeException {
         SessionCreateParams params = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl("http://localhost:8080/payment/success")
@@ -28,7 +28,7 @@ public class PaymentService {
                                 .setPriceData(
                                         SessionCreateParams.LineItem.PriceData.builder()
                                                 .setCurrency("usd")
-                                                .setUnitAmount(amount) // Ödenecek tutar (cent cinsinden)
+                                                .setUnitAmount(Long.valueOf(amount))
                                                 .setProductData(
                                                         SessionCreateParams.LineItem.PriceData.ProductData.builder()
                                                                 .setName(courseName)

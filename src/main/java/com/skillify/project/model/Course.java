@@ -29,6 +29,15 @@ public class Course {
 
     private List<Long> lessonIds;
 
+    private boolean isPurchased;
+
+    public boolean isPurchased() {
+        return isPurchased;
+    }
+
+    public void setPurchased(boolean purchased) {
+        isPurchased = purchased;
+    }
 
     public List<Long> getLessonIds() {
         return lessonIds;
