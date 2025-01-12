@@ -26,7 +26,7 @@ jobs:
         run: chmod +x ./mvnw  
 
       - name: Build JAR file
-        run: ./mvnw clean package -DskipTestss
+        run: ./mvnw clean package -DskipTests
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -39,6 +39,10 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/myapp:latest -f- . <<EOF
           FROM openjdk:17-jdk-slim
           COPY target/*.jar app.jar
+          # Cloudinary API keys as environment variables
+          ENV CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          ENV CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
+          ENV CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
           ENTRYPOINT ["java", "-jar", "/app.jar"]
           EOF
 
