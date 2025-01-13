@@ -35,3 +35,9 @@ build/
 # Application Properties
 */resources
 /resources
+./resources
+# Application Properties
+/application.properties
+# Application Properties
+/resources/application.properties
+
