@@ -18,6 +18,9 @@ This repository contains the code for an Online Course Management Platform devel
 2. **Course Purchase Feature Added**  
    - A purchase system has been implemented where users can buy courses. Payment processing is handled through Stripe, ensuring secure and seamless transactions. Once purchased, the course is unlocked, and the user gains full access to its content.
 
+3. **Favorite Section Added**
+   - A favorite section has been introduced, enabling users to mark courses as favorites. This feature allows easy access to preferred courses and enhances the user experience by saving and organizing favorite content.
+
 ## **Features**
 
 ### **Tasks for Online Course Management Platform**
