@@ -11,6 +11,13 @@ This repository contains the code for an Online Course Management Platform devel
 1. <a href="https://doguhannilt.github.io/Skillify-Backend/">Github Page</a>
 2. <a href="https://hub.docker.com/repository/docker/doguhannilt/myapp">Docker</a>
 
+## **Notes**  
+1. **Gamification Implemented**  
+   - A gamification system has been integrated into the platform, allowing users to earn rewards and badges for specific achievements, such as completing a course or reaching learning milestones.  
+
+2. **Course Purchase Feature Added**  
+   - A purchase system has been implemented where users can buy courses. Payment processing is handled through Stripe, ensuring secure and seamless transactions. Once purchased, the course is unlocked, and the user gains full access to its content.
+
 ## **Features**
 
 ### **Tasks for Online Course Management Platform**
