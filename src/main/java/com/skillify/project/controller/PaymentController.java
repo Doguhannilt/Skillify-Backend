@@ -17,7 +17,7 @@ public class PaymentController {
     @GetMapping("/create-checkout-session")
     public String createCheckoutSession(@RequestParam String courseName, @RequestParam Long amount) {
         try {
-            return paymentService.createCheckoutSession(courseName, amount);
+            return paymentService.createCheckoutSession(courseName, Math.toIntExact(amount));
         } catch (Exception e) {
             return "Error creating checkout session: " + e.getMessage();
         }
