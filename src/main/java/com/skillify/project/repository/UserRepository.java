@@ -13,4 +13,5 @@ public interface UserRepository extends MongoRepository<User, Long> {
     Boolean existsByEmail(String Email);
     Optional<User> findById(ObjectId instructorObjectId);
     List<User> findByLastLoginAfter(LocalDate thirtyDaysAgo);
+    Optional<User> findByName(String name);
 }

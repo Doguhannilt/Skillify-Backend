@@ -1,5 +1,6 @@
 package com.skillify.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,11 +19,25 @@ public class User {
 
     private String password;
 
-    private Role role;
-    private LocalDate lastLogin;
+    private String bio;
 
+    private Role role;
+
+    @JsonIgnore
+    private LocalDate lastLogin;
+    @JsonIgnore
     private Long totalPoints = 0L;
+    @JsonIgnore
     private List<Long> earnedBadges;
+
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 
     public Long getTotalPoints() {
         return totalPoints;

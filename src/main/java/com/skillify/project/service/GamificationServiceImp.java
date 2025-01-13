@@ -22,6 +22,7 @@ public class GamificationServiceImp implements GamificationService {
         this.badgeRepository = badgeRepository;
     }
 
+    @Override
     public void addPointsToUser(Long userId, GamificationEvents event) {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isEmpty()) {

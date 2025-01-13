@@ -16,9 +16,7 @@ public class SignupRequest {
     @NotEmpty(message = "Password cannot be empty")
     private String password;
 
-    private Role role;  // ROLE_ADMIN, ROLE_INSTRUCTOR, ROLE_STUDENT gibi değerler
-
-    // Getter ve Setter metodları
+    private Role role;
 
     public String getName() {
         return name;
