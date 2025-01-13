@@ -1,8 +1,8 @@
 package com.skillify.project.controller;
 
 import com.skillify.project.config.JwtTokenUtil;
+import com.skillify.project.dto.UserDTO;
 import com.skillify.project.model.User;
-import com.skillify.project.repository.UserRepository;
 import com.skillify.project.request.LoginRequest;
 import com.skillify.project.service.CustomUserDetailsService;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,6 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
     private final CustomUserDetailsService userDetailsService;
-
 
     public AuthController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, CustomUserDetailsService userDetailsService) {
         this.authenticationManager = authenticationManager;
@@ -39,7 +38,7 @@ public class AuthController {
     }
 
     @PostMapping("/sign")
-    public ResponseEntity<String> createUser(@RequestBody User user) {
+    public ResponseEntity<UserDTO> createUser(@RequestBody User user) {
         try{
            return userDetailsService.createUser(user);
         } catch (Exception e) {

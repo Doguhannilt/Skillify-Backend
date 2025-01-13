@@ -24,7 +24,7 @@ public class InstructorDashboardController {
         this.instructorDashboardServiceImp = instructorDashboardServiceImp;
     }
 
-    // Getting courses by instructorId
+
     @Operation(summary = "Get Courses", description = "Get Courses By Instructor Id")
     @GetMapping("/courses")
     public ResponseEntity<List<Course>> getInstructorCourses(@RequestParam Long instructorId) throws Exception {

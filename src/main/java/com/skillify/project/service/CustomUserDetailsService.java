@@ -4,7 +4,6 @@ import com.skillify.project.dto.UserDTO;
 import com.skillify.project.model.Role;
 import com.skillify.project.model.User;
 import com.skillify.project.repository.UserRepository;
-import org.bouncycastle.crypto.generators.BCrypt;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,11 +20,9 @@ import java.util.Optional;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserRepository userRepository;
 
-    public CustomUserDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder, UserRepository userRepository) {
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    public CustomUserDetailsService( UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -47,26 +44,24 @@ public class CustomUserDetailsService implements UserDetailsService {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
-    public ResponseEntity<String> createUser(User user) {
-
+    public ResponseEntity<UserDTO> createUser(User user) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
         Optional<User> isNameAvailable = userRepository.findByName(user.getName());
-        if(isNameAvailable.isPresent()) {
-            return ResponseEntity.badRequest().body("Name is not available");
+        if (isNameAvailable.isPresent()) {
+            throw new Exception();
         }
 
         Boolean isEmailAvailable = userRepository.existsByEmail(user.getEmail());
-        if(isEmailAvailable) {
-            return ResponseEntity.badRequest().body("Email has been taken");
+        if (isEmailAvailable) {
+            throw new Exception();
         }
 
         User savedUser = userRepository.save(user);
 
         UserDTO userDTO = new UserDTO(savedUser.getId(), savedUser.getName(), savedUser.getEmail(), savedUser.getRole());
-        return ResponseEntity.ok(userDTO.toString());
+        return ResponseEntity.ok(userDTO);
     }
-
 }
