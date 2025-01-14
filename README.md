@@ -11,6 +11,33 @@ This repository contains the code for an Online Course Management Platform devel
 1. <a href="https://doguhannilt.github.io/Skillify-Backend/">Github Page</a>
 2. <a href="https://hub.docker.com/repository/docker/doguhannilt/myapp">Docker</a>
 
+## Tests
+
+The following tests have been successfully passed:
+
+### 1. **Create Lesson Tests**
+   - `createLesson_Success`: The lesson was successfully created.
+   - `createLesson_CourseNotFound`: Appropriate error message is returned when the course is not found.
+
+### 2. **Update Lesson Tests**
+   - `updateLesson_Success`: The lesson was successfully updated.
+
+### 3. **Delete Lesson Tests**
+   - `deleteLesson_Success`: The lesson was successfully deleted.
+
+### 4. **Create Course Tests**
+   - `createCourse_Success`: The course was successfully created and email was sent to the instructor.
+   - `createCourse_CourseAlreadyExists`: An exception was thrown when attempting to create a course with an already taken name.
+
+### 5. **Delete Course Tests**
+   - `deleteCourse_Success`: The course was successfully deleted and email was sent to the instructor.
+   - `deleteCourse_CourseNotFound`: Appropriate error message was returned when trying to delete a non-existent course.
+
+### 6. **Update Course Tests**
+   - `updateCourse_Success`: The course was successfully updated.
+   - `updateCourse_CourseNotFound`: An error message was returned when trying to update a non-existent course.
+
+
 ## **Notes**  
 1. **Gamification Implemented**  
    - A gamification system has been integrated into the platform, allowing users to earn rewards and badges for specific achievements, such as completing a course or reaching learning milestones.  
