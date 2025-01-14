@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Document
 public class Course {
@@ -35,6 +36,32 @@ public class Course {
     public Course() {
         this.lessonIds = new ArrayList<>();  // Constructor'da başlatıyoruz
     }
+
+    public Course(Long id, String name, String description, Integer price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.language = new ArrayList<>();  // Optional, eğer dil listesi varsa başlatılır
+        this.status = Status.AVAILABLE;  // Varsayılan bir statü atayabilirsiniz
+        this.lessonIds = new ArrayList<>();
+        this.isPurchased = false;  // Varsayılan olarak false
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return Objects.equals(name, course.name) &&
+                Objects.equals(description, course.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description);
+    }
+
+
     public boolean isPurchased() {
         return isPurchased;
     }
