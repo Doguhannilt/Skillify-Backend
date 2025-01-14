@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document
@@ -31,6 +32,9 @@ public class Course {
 
     private boolean isPurchased;
 
+    public Course() {
+        this.lessonIds = new ArrayList<>();  // Constructor'da başlatıyoruz
+    }
     public boolean isPurchased() {
         return isPurchased;
     }

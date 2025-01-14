@@ -60,6 +60,7 @@ public class LessonServiceImp implements LessonService {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body("Lesson has been created with ID: " + lesson.getId());
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
