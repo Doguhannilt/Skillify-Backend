@@ -2,6 +2,18 @@
 
 # Online Course Management Platform
 
+
+1. [Overview](#overview)  
+2. [Urls](#urls)  
+3. [Course Recommendation Service](#course-recommendation-service)  
+4. [Tests](#tests)  
+5. [Notes](#notes)  
+6. [Features](#features)  
+7. [Technologies Used](#technologies-used)  
+8. [Database Schema](#database-schema)  
+9. [Getting Started](#getting-started)  
+10. [License](#license)
+    
 ## Overview
 
 This repository contains the code for an Online Course Management Platform developed using **Spring Boot** and various technologies. The platform allows users (students, instructors, and admins) to interact with courses, lessons, and other features like authentication, course management, and payment integration. 
