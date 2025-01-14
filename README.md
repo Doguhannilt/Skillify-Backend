@@ -11,6 +11,58 @@ This repository contains the code for an Online Course Management Platform devel
 1. <a href="https://doguhannilt.github.io/Skillify-Backend/">Github Page</a>
 2. <a href="https://hub.docker.com/repository/docker/doguhannilt/myapp">Docker</a>
 
+## Course Recommendation Service
+
+
+**Description**  
+The platform provides a feature to recommend similar courses based on the description of a given course. This is implemented using the **TF-IDF** (Term Frequency - Inverse Document Frequency) technique for text vectorization and **Cosine Similarity** for measuring similarity between course descriptions.
+
+**How It Works**  
+1. Each course description is converted into a frequency vector using TF-IDF.  
+2. Cosine Similarity is calculated between the target course and other courses in the database.  
+3. Courses are ranked based on similarity scores, and the top 5 most similar courses are recommended.
+
+**Key Features**  
+- Dynamically analyzes course descriptions to provide personalized recommendations.  
+- Scans all courses in the database to ensure relevant suggestions.  
+- Optimized for performance by processing only the required data.
+
+**Usage**  
+The feature is accessible through a dedicated endpoint:
+
+- **Endpoint:** `GET /api/courses/{courseId}/recommendations`  
+- **Input:** Course ID of the target course.  
+- **Output:** A list of the top 5 similar courses, including their details.
+
+**Example Response:**  
+```json
+[
+  {
+    "id": 102,
+    "name": "Introduction to Machine Learning",
+    "description": "Learn the basics of machine learning with hands-on projects.",
+    "price": 49,
+    "language": ["English"],
+    "status": "Available"
+  },
+  {
+    "id": 205,
+    "name": "Advanced Data Science",
+    "description": "Master advanced data science techniques and tools.",
+    "price": 79,
+    "language": ["English"],
+    "status": "Available"
+  }
+]
+```
+
+**Implementation**  
+- The `CosineSimilarityService` calculates similarity scores between course descriptions.  
+- The `CourseRecommendationService` ranks courses and returns the most relevant ones.  
+- Fully integrated with the existing course management system.
+
+This feature enhances user engagement by offering personalized course recommendations, improving the overall user experience.
+
 ## Tests
 
 The following tests have been successfully passed:
