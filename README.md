@@ -101,6 +101,9 @@ The following tests have been successfully passed:
    - `updateCourse_Success`: The course was successfully updated.
    - `updateCourse_CourseNotFound`: An error message was returned when trying to update a non-existent course.
 
+### 7. **Course Recommendation Test**
+   - `testRecommendCourses`: Cosine Similarity is successfully running.
+
 
 ## **Notes**  
 1. **Gamification Implemented**  
