@@ -132,9 +132,17 @@
 			<version>2.2.0</version>
 		</dependency>
 
+		<!-- Logger -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+
+		<!-- TF-IDF COSINE SIMILARITY -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.10.0</version>
 		</dependency>
 
 	</dependencies>

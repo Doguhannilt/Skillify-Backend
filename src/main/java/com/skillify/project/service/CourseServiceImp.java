@@ -6,14 +6,12 @@ import com.skillify.project.model.User;
 import com.skillify.project.repository.CourseRepository;
 import com.skillify.project.repository.UserRepository;
 import com.skillify.project.utils.MailSender;
-import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static java.lang.System.*;
 
 @Service
 public class CourseServiceImp implements CourseService {
@@ -31,13 +29,17 @@ public class CourseServiceImp implements CourseService {
     @Override
     public Course createCourse(Course course) throws Exception {
         try {
+            // Check if the course already exists
             Optional<Course> existingCourse = courseRepository.findByName(course.getName());
             if (existingCourse.isPresent()) {
                 throw new Exception("This course name is already taken");
             }
 
-            ObjectId instructorObjectId = new ObjectId(String.valueOf(course.getInstructorId()));
+            Long instructorObjectId = course.getInstructorId();
+            System.out.println("Instructor ID: " + instructorObjectId);
+
             Optional<User> instructor = userRepository.findById(instructorObjectId);
+            System.out.println("Instructor found: " + instructor.isPresent());
 
             if (instructor.isEmpty()) {
                 throw new IllegalArgumentException("Invalid instructor");
@@ -48,15 +50,20 @@ public class CourseServiceImp implements CourseService {
             newCourse.setInstructorId(course.getInstructorId());
 
             String instructorEmail = instructor.get().getEmail();
-            // Send email to instructor upon course creation
-            mailSender.sendEmailToInstructor(instructor, course, instructorEmail,"Your course has been successfully created.");
+            mailSender.sendEmailToInstructor(instructor, course, instructorEmail, "Your course has been successfully created.");
 
             return courseRepository.save(newCourse);
+        } catch (IllegalArgumentException e) {
+            // Log and rethrow specific error
+            System.out.println("Error: " + e.getMessage());
+            throw e;
         } catch (Exception e) {
-            System.out.println("Error while creating course: " + e.getMessage());
-            return null;
+            // Log unexpected errors
+            System.out.println("Unexpected error: " + e.getMessage());
+            throw new RuntimeException("Unexpected error occurred while creating course", e);
         }
     }
+
 
     @Override
     public ResponseEntity<String> deleteCourse(Course course) throws Exception {
