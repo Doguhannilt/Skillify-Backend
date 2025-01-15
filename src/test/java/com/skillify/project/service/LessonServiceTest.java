@@ -71,7 +71,7 @@ class LessonServiceTest {
     void createLesson_Success() throws Exception {
         // Arrange
         when(videoFile.isEmpty()).thenReturn(false);
-        when(courseRepository.findById("100")).thenReturn(Optional.of(course));
+        when(courseRepository.findById("100L")).thenReturn(Optional.of(course));
         when(userRepository.findById("200L")).thenReturn(Optional.of(instructor));
         when(cloudinaryService.uploadVideo(videoFile)).thenReturn("http://video.url");
         when(lessonRepository.save(any(Lesson.class))).thenReturn(lesson);
