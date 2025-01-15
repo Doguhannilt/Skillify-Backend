@@ -5,7 +5,6 @@ import com.skillify.project.model.User;
 import com.skillify.project.repository.CourseRepository;
 import com.skillify.project.repository.UserRepository;
 import com.skillify.project.utils.MailSender;
-import org.bson.types.ObjectId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -45,19 +44,19 @@ public class CourseServiceImpTest {
 
         // Initialize mock objects
         course = new Course();
-        course.setId(12L);
+        course.setId("12");
         course.setName("Java Programming");
-        course.setInstructorId(12L);  // Valid instructorId as Long
+        course.setInstructorId("12");
 
         user = new User();
-        user.setId(12L);  // Ensure instructor has the same ID as in the course
+        user.setId("12");
         user.setEmail("instructor@example.com");
     }
 
     @Test
     void createCourse_Success() throws Exception {
         // Arrange
-        Long validInstructorId = 12L;
+        String validInstructorId = "12";
         course.setInstructorId(validInstructorId);
 
         // Mocking
@@ -68,7 +67,7 @@ public class CourseServiceImpTest {
         Course createdCourse = courseService.createCourse(course);
 
         // Assert
-        verify(userRepository).findById(validInstructorId);  // Verify that findById is called with the correct ID
+        verify(userRepository).findById(validInstructorId);
         assertNotNull(createdCourse);
         assertEquals(course.getName(), createdCourse.getName());
         verify(courseRepository, times(1)).save(any(Course.class));

@@ -52,15 +52,15 @@ class LessonServiceTest {
     @BeforeEach
     void setUp() {
         lesson = new Lesson();
-        lesson.setId(1L);
-        lesson.setCourseId(100L);
+        lesson.setId("1L");
+        lesson.setCourseId("100L");
 
         course = new Course();
-        course.setId(100L);
-        course.setInstructorId(200L);
+        course.setId("100L");
+        course.setInstructorId("200L");
 
         instructor = new User();
-        instructor.setId(200L);
+        instructor.setId("200L");
         instructor.setEmail("instructor@example.com");
 
         videoFile = mock(MultipartFile.class);
@@ -72,7 +72,7 @@ class LessonServiceTest {
         // Arrange
         when(videoFile.isEmpty()).thenReturn(false);
         when(courseRepository.findById("100")).thenReturn(Optional.of(course));
-        when(userRepository.findById(200L)).thenReturn(Optional.of(instructor));
+        when(userRepository.findById("200L")).thenReturn(Optional.of(instructor));
         when(cloudinaryService.uploadVideo(videoFile)).thenReturn("http://video.url");
         when(lessonRepository.save(any(Lesson.class))).thenReturn(lesson);
 
@@ -82,7 +82,7 @@ class LessonServiceTest {
 
         // Assert
         assertEquals(HttpStatus.CREATED.value(), response.getStatusCodeValue());
-        assertEquals("Lesson has been created with ID: " + lesson.getId(), response.getBody()); // Mesajın doğru olup olmadığını kontrol ediyoruz.
+        assertEquals("Lesson has been created with ID: " + lesson.getId(), response.getBody());
         verify(courseRepository, times(1)).save(course);
         verify(mailSender, times(1))
                 .sendEmailToInstructor(eq(Optional.of(instructor)), eq(course), eq("instructor@example.com"), eq("Lesson is created"));
@@ -105,7 +105,7 @@ class LessonServiceTest {
     void createLesson_InstructorNotFound() {
         // Arrange
         when(courseRepository.findById("100")).thenReturn(Optional.of(course));
-        when(userRepository.findById(200L)).thenReturn(Optional.empty());
+        when(userRepository.findById("200L")).thenReturn(Optional.empty());
 
         // Act
         ResponseEntity<String> response = assertDoesNotThrow(() -> lessonService.createLesson(lesson, videoFile));
@@ -119,7 +119,7 @@ class LessonServiceTest {
     void createLesson_VideoUploadFails() throws Exception {
         // Arrange
         when(courseRepository.findById("100")).thenReturn(Optional.of(course));
-        when(userRepository.findById(200L)).thenReturn(Optional.of(instructor));
+        when(userRepository.findById("200L")).thenReturn(Optional.of(instructor));
         when(cloudinaryService.uploadVideo(videoFile)).thenThrow(new RuntimeException("Video upload failed"));
 
         // Act
@@ -132,14 +132,14 @@ class LessonServiceTest {
 
     @Test
     void deleteLesson_Success() throws Exception {
-        // Arrange
+
         Lesson lesson = new Lesson();
-        lesson.setId(1L); // Silinecek lesson ID'si
+        lesson.setId("1L"); // Silinecek lesson ID'si
 
-        // Mocking repository metodu
-        doNothing().when(lessonRepository).deleteById(lesson.getId()); // deleteById hiçbir şey yapmayacak şekilde mocklanıyor
 
-        // Act
+        doNothing().when(lessonRepository).deleteById(lesson.getId());
+
+
         ResponseEntity<String> response = lessonService.deleteLesson(lesson);
 
         // Assert
@@ -152,22 +152,21 @@ class LessonServiceTest {
     void updateLesson_Success() throws Exception {
         // Arrange
         Lesson lessonToUpdate = new Lesson();
-        lessonToUpdate.setId(1L);
+        lessonToUpdate.setId("1L");
         lessonToUpdate.setTitle("New Title");
         lessonToUpdate.setContent("Updated content");
-        lessonToUpdate.setCourseId(100L);
+        lessonToUpdate.setCourseId("100L");
 
         Lesson existingLesson = new Lesson();
-        existingLesson.setId(1L);
+        existingLesson.setId("1L");
         existingLesson.setTitle("Old Title");
         existingLesson.setContent("Old content");
-        existingLesson.setCourseId(100L);
+        existingLesson.setCourseId("100L");
 
         // Mocking
         when(lessonRepository.findById(lessonToUpdate.getId())).thenReturn(Optional.of(existingLesson)); // Var olan lesson'ı bul
-        // Gereksiz mock kaldırıldı:
-        // when(cloudinaryService.uploadVideo(any(MultipartFile.class))).thenReturn("http://video.url");
-        when(lessonRepository.save(existingLesson)).thenReturn(existingLesson); // Güncellenmiş lesson'ı kaydet
+
+        when(lessonRepository.save(existingLesson)).thenReturn(existingLesson);
 
         // Act
         ResponseEntity<String> response = lessonService.updateLesson(lessonToUpdate, null); // videoFile null
@@ -182,7 +181,7 @@ class LessonServiceTest {
     void updateLesson_LessonNotFound() throws Exception {
         // Arrange
         Lesson lessonToUpdate = new Lesson();
-        lessonToUpdate.setId(1L); // Bulunmayan lesson ID'si
+        lessonToUpdate.setId("1L");
         lessonToUpdate.setTitle("New Title");
 
         // Mocking
