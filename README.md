@@ -104,16 +104,19 @@ The following tests have been successfully passed:
 ### 7. **Course Recommendation Test**
    - `testRecommendCourses`: Cosine Similarity is successfully running.
 
+**Release Notes**:
 
-## **Notes**  
 1. **Gamification Implemented**  
-   - A gamification system has been integrated into the platform, allowing users to earn rewards and badges for specific achievements, such as completing a course or reaching learning milestones.  
+   - A gamification system has been integrated into the platform, allowing users to earn rewards and badges for specific achievements, such as completing a course or reaching learning milestones.
 
 2. **Course Purchase Feature Added**  
    - A purchase system has been implemented where users can buy courses. Payment processing is handled through Stripe, ensuring secure and seamless transactions. Once purchased, the course is unlocked, and the user gains full access to its content.
 
-3. **Favorite Section Added**
+3. **Favorite Section Added**  
    - A favorite section has been introduced, enabling users to mark courses as favorites. This feature allows easy access to preferred courses and enhances the user experience by saving and organizing favorite content.
+
+4. **Redis and Caching System Integrated**  
+   - Redis caching has been implemented across several services to improve performance and reduce database load. Popular queries, such as fetching all courses, filtering by name or instructor, and course recommendations, are now cached, resulting in faster responses for users. The caching layer significantly improves user experience by providing quicker data access and reducing redundant database queries.
 
 ## **Features**
 
