@@ -33,9 +33,6 @@ public class ForumTopicServiceImp implements ForumTopicService {
     public ForumTopic createForumTopic(ForumTopic forumTopic) throws Exception {
         List<Course> byInstructorId = courseRepository.findByInstructorId(forumTopic.getInstructorId());
 
-        if (forumTopic == null) {
-            throw new IllegalArgumentException("Forum topic cannot be null.");
-        }
         if (forumTopic.getTitle() == null || forumTopic.getTitle().trim().isEmpty()) {
             throw new IllegalArgumentException("Forum topic title cannot be empty.");
         }
