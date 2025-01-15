@@ -22,7 +22,7 @@ public class QuestionServiceImp implements QuestionService {
     }
 
     @Override
-    public List<Question> getQuestionsByForumTopicId(Long topicId) throws Exception {
+    public List<Question> getQuestionsByForumTopicId(String topicId) throws Exception {
         if (topicId == null) {
             throw new IllegalArgumentException("Forum topic ID cannot be null.");
         }
