@@ -121,9 +121,12 @@
     <header>
     <h1 class="title">Online Course Management Platform</h1>
     <p>Track tasks and technologies for platform development</p>
-</header>
-
+    </header>
+</head>
+<body>
     <main>
+
+        <!-- NOTES -->
         <h2>Notes</h2>
         <table>
             <thead>
@@ -156,6 +159,7 @@
             </tbody>
         </table>
 
+        <!-- TASKS -->
         <h2>Tasks for Online Course Management Platform</h2>
         <table>
             <thead>
@@ -235,6 +239,8 @@
             </tr>
             </tbody>
         </table>
+
+        <!-- FORUM FEATURES -->
         <h2>Forum Feature</h2>
         <table>
             <thead>
@@ -262,6 +268,8 @@
             </tr>
             </tbody>
         </table>
+
+        <!-- TECHNOLOGIES -->
         <h2>Technologies for Online Course Management Platform</h2>
         <table>
             <thead>
@@ -301,8 +309,107 @@
             </tr>
             </tbody>
         </table>
+
+        <!-- TEST -->
+        <h2>Tests</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Test</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="completed">
+                <td><span>Create Lesson Tests</span></td>
+                <td>
+                    <p><strong>createLesson_Success:</strong> The lesson was successfully created.</p>
+                    <p><strong>createLesson_CourseNotFound:</strong> Appropriate error message is returned when the course is not found.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Update Lesson Tests</span></td>
+                <td>
+                    <p><strong>updateLesson_Success:</strong> The lesson was successfully updated.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Delete Lesson Tests</span></td>
+                <td>
+                    <p><strong>deleteLesson_Success:</strong> The lesson was successfully deleted.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Create Course Tests</span></td>
+                <td>
+                    <p><strong>createCourse_Success:</strong> The course was successfully created and an email was sent to the instructor.</p>
+                    <p><strong>createCourse_CourseAlreadyExists:</strong> An exception was thrown when attempting to create a course with an already taken name.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Delete Course Tests</span></td>
+                <td>
+                    <p><strong>deleteCourse_Success:</strong> The course was successfully deleted and an email was sent to the instructor.</p>
+                    <p><strong>deleteCourse_CourseNotFound:</strong> Appropriate error message was returned when trying to delete a non-existent course.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Update Course Tests</span></td>
+                <td>
+                    <p><strong>updateCourse_Success:</strong> The course was successfully updated.</p>
+                    <p><strong>updateCourse_CourseNotFound:</strong> An error message was returned when trying to update a non-existent course.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Course Recommendation Test</span></td>
+                <td>
+                    <p><strong>testRecommendCourses:</strong> Cosine Similarity is successfully running.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Gamification Tests</span></td>
+                <td>
+                    <p><strong>addPointsToUser_Success:</strong> Points were successfully added to the user and appropriate badges were awarded.</p>
+                    <p><strong>addPointsToUser_UserNotFound:</strong> Appropriate error message was returned when the user was not found.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Email Service Tests</span></td>
+                <td>
+                    <p><strong>sendEmail_Success:</strong> The email was successfully sent.</p>
+                    <p><strong>sendEmail_NullValues:</strong> Appropriate error message was returned when null values were passed.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>SearchService Tests</span></td>
+                <td>
+                    <p><strong>getAllCourses_Success:</strong> All courses were successfully retrieved.</p>
+                    <p><strong>filterByName_Success:</strong> Courses were successfully listed by name filter.</p>
+                    <p><strong>filterByInstructorName_Success:</strong> Courses were successfully filtered by instructor name.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>AdminService Tests</span></td>
+                <td>
+                    <p><strong>getAllUsers_Success:</strong> All users were successfully retrieved.</p>
+                    <p><strong>getUserById_Success:</strong> User was successfully retrieved by user ID.</p>
+                    <p><strong>deleteUserById_Success:</strong> User was successfully deleted.</p>
+                    <p><strong>getAllCourses_Success:</strong> All courses were successfully retrieved.</p>
+                    <p><strong>getCourseById_Success:</strong> Course was successfully retrieved by course ID.</p>
+                    <p><strong>deleteLessonById_Success:</strong> Lesson was successfully deleted.</p>
+                    <p><strong>getEnrollmentsWithinRange_Success:</strong> Enrollments within the specified date range were successfully retrieved.</p>
+                </td>
+            </tr>
+            <tr class="completed">
+                <td><span>Cosine Similarity Tests</span></td>
+                <td>
+                    <p><strong>testCosineSimilarity_Success:</strong> Cosine Similarity algorithm ran successfully.</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
         <a href="https://www.github.com/doguhannilt/Skillify-Backend" class="btn">View Full Project</a>
     </main>
-
 </body>
 </html>
