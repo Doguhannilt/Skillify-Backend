@@ -21,7 +21,7 @@ This repository contains the code for an Online Course Management Platform devel
 
 ## Urls
 
-1. <a href="https://doguhannilt.github.io/Skillify-Backend/">Github Page</a>
+1. <a href="https://doguhannilt.github.io/Skillify-Backend/">Track Tasks</a>
 2. <a href="https://hub.docker.com/repository/docker/doguhannilt/myapp">Docker</a>
 
 # Forum Feature for Online Course Platform
