@@ -122,59 +122,59 @@ The following tests have been successfully passed:
 
 ### **Tasks for Online Course Management Platform**
 
-1. **User Registration and Authentication** ✔
+1. **User Registration and Authentication** 
    - **Task**: Implement user registration functionality with email and password.
    - **Description**: Users can sign up by providing their email, password, and name. The system stores this information securely, with passwords encrypted using a secure algorithm (e.g., BCrypt).
 
-2. **User Role Management** ✔
+2. **User Role Management** 
    - **Task**: Implement role-based authentication for different users.
    - **Description**: Supports roles like "Instructor", "Student", and "Admin". Based on roles, users have different access levels to platform features.
 
-3. **Login and JWT Authentication** ✔
+3. **Login and JWT Authentication** 
    - **Task**: Implement login system using JWT for stateless authentication.
    - **Description**: After logging in with credentials, users receive a JWT token for secure communication in subsequent requests.
 
-4. **Course Creation and Management** ✔
+4. **Course Creation and Management** 
    - **Task**: Allow instructors to create and manage their courses.
    - **Description**: Instructors can create courses, edit them, and manage content such as course title, description, and category.
 
-5. **Course Enrollment** ✔
+5. **Course Enrollment** 
    - **Task**: Enable students to enroll in available courses.
    - **Description**: Students can browse courses, enroll, and check if a course is full.
 
-6. **Lesson Management** ✔
+6. **Lesson Management** 
    - **Task**: Allow instructors to add lessons to their courses.
    - **Description**: Instructors can add lessons with titles, content, and optional video URLs.
 
-7. **Course List and Search** ✔
+7. **Course List and Search** 
    - **Task**: Display courses with search and filter functionality.
    - **Description**: Students can search courses by name, category, or instructor, and the list is paginated for scalability.
 
-8. **Student Dashboard** ✔
+8. **Student Dashboard** 
    - **Task**: Create a dashboard for students to view their enrolled courses and lessons.
    - **Description**: Students can track their progress and mark lessons as completed.
 
-9. **Instructor Dashboard** ✔
+9. **Instructor Dashboard** 
    - **Task**: Provide a dashboard for instructors to manage courses and students.
    - **Description**: Instructors can view courses they’ve created, manage lessons, and track student enrollments.
 
-10. **Admin Panel** ✔
+10. **Admin Panel** 
     - **Task**: Implement an admin panel for managing users, courses, and enrollments.
     - **Description**: Admins can manage users, approve/reject courses, enroll students manually, and delete accounts.
 
-11. **Course Completion Tracking** ✔
+11. **Course Completion Tracking** 
     - **Task**: Implement a system for tracking course completion.
     - **Description**: Students can track their course completion status, marking lessons as completed.
 
-12. **Payment System Integration** ✔
+12. **Payment System Integration** 
     - **Task**: Integrate a payment gateway for course purchases.
     - **Description**: Integrate Stripe or PayPal to handle course payments and issue receipts.
 
-13. **Course Rating and Review System** ✔
+13. **Course Rating and Review System** 
     - **Task**: Implement a rating and review system for courses.
     - **Description**: Students can rate and review courses after completing them.
 
-14. **Notification System** ✔
+14. **Notification System** 
     - **Task**: Implement notifications for course updates, enrollment, and other important actions.
     - **Description**: Students and instructors receive notifications via email or platform notifications for important updates.
 
@@ -182,11 +182,11 @@ The following tests have been successfully passed:
     - **Task**: Ensure the platform is responsive and mobile-friendly.
     - **Description**: The platform is optimized for both desktop and mobile devices.
 
-16. **Analytics and Reports for Admins** ✔
+16. **Analytics and Reports for Admins** 
     - **Task**: Implement analytics and reporting for admins.
     - **Description**: Admins can view reports on active users, popular courses, and payments, displayed in graphs or tables.
 
-17. **Security and Data Protection** ✔
+17. **Security and Data Protection** 
     - **Task**: Ensure secure storage and transmission of user data.
     - **Description**: Implement encryption, secure storage practices, and authorization checks to protect user data.
 
@@ -194,39 +194,39 @@ The following tests have been successfully passed:
 
 ## **Technologies Used**
 
-1. **Backend Framework** ✔
+1. **Backend Framework** 
    - **Spring Boot**: A Java-based framework for developing the backend, managing RESTful APIs, and handling user authentication and authorization.
 
-2. **Database** (MongoDB provided) ✔
+2. **Database** (MongoDB provided) 
    - **MySQL** or **PostgreSQL**: Relational databases for storing user, course, lesson, and enrollment data. These databases offer scalability and robust querying capabilities.
    - **JPA (Java Persistence API)**: Object-relational mapping (ORM) for managing entities like User, Course, and Enrollment.
 
-3. **Authentication and Authorization** ✔
+3. **Authentication and Authorization** 
    - **Spring Security**: Provides authentication and authorization features for role-based access control (RBAC).
    - **JWT (JSON Web Token)**: Used for stateless authentication, securely transmitting information between client and server.
-
-4. **Payment System** ✔
+     
+4. **Payment System** 
    - **Stripe** or **PayPal**: Integrated payment gateways for handling course purchases securely.
 
-5. **Notification System** ✔
+5. **Notification System**
    - **Spring Integration** or **Spring Kafka**: Frameworks for asynchronous messaging to send notifications.
    - **JavaMail API**: Used to send emails like course enrollment confirmations.
 
-6. **API Documentation** ✔
+6. **API Documentation** 
    - **Swagger/OpenAPI**: Used for API documentation and testing, providing an interactive interface for exploring and testing platform APIs.
 
-7. **Logging** ✔
+7. **Logging** 
    - **SLF4J with Logback**: For logging events and errors, aiding in debugging and production monitoring.
 
-8. **Version Control** ✔
+8. **Version Control** 
    - **Git**: For version control and collaboration on source code.
    - **GitHub** or **GitLab**: Platforms for hosting the repository and collaborating.
 
-9. **Deployment** ✔
+9. **Deployment** 
    - **Docker**: Containerizes the application for portability across environments.
    - **AWS** or **Heroku**: Cloud platforms for hosting the backend and database.
 
-10. **Development Tools** ✔
+10. **Development Tools** 
    - **IntelliJ IDEA** or **VS Code**: IDEs for writing and debugging Java code.
    - **Postman**: A tool for testing APIs during development.
 
@@ -234,11 +234,11 @@ The following tests have been successfully passed:
    - **JUnit 5**: Used for writing unit tests to ensure the application works as expected.
    - **Mockito**: For mocking external dependencies in tests.
 
-12. **Data Protection and Encryption** ✔
+12. **Data Protection and Encryption** 
    - **BCrypt**: Securely hashes user passwords to protect against unauthorized access.
    - **TLS/SSL**: Encrypts data in transit to protect sensitive information.
 
-13. **CI/CD Pipeline** ✔
+13. **CI/CD Pipeline** 
    - **Jenkins** or **GitHub Actions**: For automating testing and deployment processes.
 
 ---
