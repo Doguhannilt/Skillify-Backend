@@ -5,5 +5,5 @@ import com.skillify.project.model.Course;
 import java.util.List;
 
 public interface InstructorDashboardService {
-    List<Course> getInstructorCourses(Long instructorId) throws Exception;
+    List<Course> getInstructorCourses(String instructorId) throws Exception;
 }

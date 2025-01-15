@@ -30,7 +30,7 @@ public class GamificationController {
 
     @Operation(summary = "Get User Badges", description = "Fetch the list of badges earned by a specific user")
     @GetMapping("/user/{userId}/badges")
-    public ResponseEntity<List<Badge>> getUserBadges(@PathVariable Long userId) {
+    public ResponseEntity<List<Badge>> getUserBadges(@PathVariable String userId) {
         logger.info("Fetching badges for user with ID: {}", userId);
         Optional<User> userOptional = userRepository.findById(userId);
 

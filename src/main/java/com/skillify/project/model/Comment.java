@@ -10,7 +10,7 @@ public class Comment {
     @Id
     private String id;
     private String content;
-    private Long userId;
+    private String userId;
     private String answerId;
     private Date date;
     private int likesCount = 0;
@@ -31,11 +31,11 @@ public class Comment {
         this.content = content;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

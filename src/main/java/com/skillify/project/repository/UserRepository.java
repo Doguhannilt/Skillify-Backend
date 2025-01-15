@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepository extends MongoRepository<User, Long> {
+public interface UserRepository extends MongoRepository<User, String> {
     Optional<User> findByEmail(String Email);
     Boolean existsByEmail(String Email);
     List<User> findByLastLoginAfter(LocalDate thirtyDaysAgo);

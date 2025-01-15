@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface EnrollmentRepository extends MongoRepository<Enrollment, Long> {
-    List<Enrollment> findByStudentId(Long studentId);
+public interface EnrollmentRepository extends MongoRepository<Enrollment, String> {
+    List<Enrollment> findByStudentId(String studentId);
 
     List<Enrollment> findByEnrollmentDateBetween(LocalDate startDate, LocalDate endDate);
 }

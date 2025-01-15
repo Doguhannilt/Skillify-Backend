@@ -9,19 +9,19 @@ import java.util.List;
 @Document(collection = "forumTopics")
 public class ForumTopic {
     @Id
-    private Long id;
+    private String id;
     private String title;
     private String description;
     private Date date;
     private List<String> keywords;
-    private Long instructorId;
+    private String instructorId;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,11 +57,11 @@ public class ForumTopic {
         this.keywords = keywords;
     }
 
-    public Long getInstructorId() {
+    public String getInstructorId() {
         return instructorId;
     }
 
-    public void setInstructorId(Long instructorId) {
+    public void setInstructorId(String instructorId) {
         this.instructorId = instructorId;
     }
 }

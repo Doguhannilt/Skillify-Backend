@@ -40,7 +40,7 @@ public class AdminDashboardController {
     @Operation(summary = "Get user by id")
     @GetMapping("/users/{id}")
     @Cacheable(value = "user", key = "#id")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable String id) throws Exception {
         logger.info("Fetching user by ID: {}", id);
         User user = new User();
         user.setId(id);
@@ -51,7 +51,7 @@ public class AdminDashboardController {
     @Operation(summary = "Delete user by id")
     @DeleteMapping("/users/{id}")
     @CacheEvict(value = "user", key = "#id")
-    public ResponseEntity<Void> deleteUserById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Void> deleteUserById(@PathVariable String id) throws Exception {
         logger.info("Deleting user with ID: {}", id);
         User user = new User();
         user.setId(id);
@@ -72,7 +72,7 @@ public class AdminDashboardController {
     @Operation(summary = "Get course by id")
     @GetMapping("/courses/{id}")
     @Cacheable(value = "course", key = "#id")
-    public ResponseEntity<Course> getCourseById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Course> getCourseById(@PathVariable String id) throws Exception {
         logger.info("Fetching course by ID: {}", id);
         Course course = new Course();
         course.setId(id);
@@ -92,7 +92,7 @@ public class AdminDashboardController {
     @Operation(summary = "Get lesson by id")
     @GetMapping("/lessons/{id}")
     @Cacheable(value = "lesson", key = "#id")
-    public ResponseEntity<Lesson> getLessonById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Lesson> getLessonById(@PathVariable String id) throws Exception {
         logger.info("Fetching lesson by ID: {}", id);
         Lesson lesson = new Lesson();
         lesson.setId(id);
@@ -103,7 +103,7 @@ public class AdminDashboardController {
     @Operation(summary = "Delete lesson by id")
     @DeleteMapping("/lessons/{id}")
     @CacheEvict(value = "lesson", key = "#id")
-    public ResponseEntity<Void> deleteLessonById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Void> deleteLessonById(@PathVariable String id) throws Exception {
         logger.info("Deleting lesson with ID: {}", id);
         Lesson lesson = new Lesson();
         lesson.setId(id);

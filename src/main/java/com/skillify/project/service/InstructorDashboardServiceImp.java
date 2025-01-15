@@ -21,7 +21,7 @@ public class InstructorDashboardServiceImp implements InstructorDashboardService
     }
 
     @Override
-    public List<Course> getInstructorCourses(Long instructorId) throws Exception {
+    public List<Course> getInstructorCourses(String instructorId) throws Exception {
         return courseRepository.findByInstructorId(instructorId);
     }
 }

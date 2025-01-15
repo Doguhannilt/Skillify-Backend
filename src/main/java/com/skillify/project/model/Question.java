@@ -8,17 +8,17 @@ import java.util.Date;
 @Document(collection = "questions")
 public class Question {
     @Id
-    private Long id;
+    private String id;
     private String content;
-    private Long studentId;
-    private Long forumTopicId;
+    private String studentId;
+    private String forumTopicId;
     private Date date;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -30,19 +30,19 @@ public class Question {
         this.content = content;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
-    public Long getForumTopicId() {
+    public String getForumTopicId() {
         return forumTopicId;
     }
 
-    public void setForumTopicId(Long forumTopicId) {
+    public void setForumTopicId(String forumTopicId) {
         this.forumTopicId = forumTopicId;
     }
 

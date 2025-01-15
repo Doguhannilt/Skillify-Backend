@@ -29,7 +29,7 @@ public class InstructorDashboardController {
     @Operation(summary = "Get Courses", description = "Get Courses By Instructor Id")
     @GetMapping("/courses")
     @Cacheable(value = "Instructor", key = "#instructorId")
-    public ResponseEntity<List<Course>> getInstructorCourses(@RequestParam Long instructorId) throws Exception {
+    public ResponseEntity<List<Course>> getInstructorCourses(@RequestParam String instructorId) throws Exception {
         try {
             logger.info("Fetching courses for instructor with ID: {}", instructorId);
             List<Course> courses = instructorDashboardServiceImp.getInstructorCourses(instructorId);

@@ -11,7 +11,7 @@ import java.util.List;
 public class User {
 
     @Id
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -28,7 +28,7 @@ public class User {
     @JsonIgnore
     private Long totalPoints = 0L;
     @JsonIgnore
-    private List<Long> earnedBadges;
+    private List<String> earnedBadges;
 
 
     public String getBio() {
@@ -47,11 +47,11 @@ public class User {
         this.totalPoints = totalPoints;
     }
 
-    public List<Long> getEarnedBadges() {
+    public List<String> getEarnedBadges() {
         return earnedBadges;
     }
 
-    public void setEarnedBadges(List<Long> earnedBadges) {
+    public void setEarnedBadges(List<String> earnedBadges) {
         this.earnedBadges = earnedBadges;
     }
 
@@ -62,11 +62,11 @@ public class User {
     public void setLastLogin(LocalDate lastLogin) {
         this.lastLogin = lastLogin;
     }
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

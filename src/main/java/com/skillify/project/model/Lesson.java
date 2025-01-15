@@ -9,7 +9,7 @@ import java.util.List;
 public class Lesson {
 
     @Id
-    private Long id;
+    private String id;
 
     private String title;
 
@@ -17,7 +17,7 @@ public class Lesson {
 
     private String videoUrl;
 
-    private Long courseId;
+    private String courseId;
 
     private Boolean status;
 
@@ -30,11 +30,11 @@ public class Lesson {
         this.status = status;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -62,11 +62,11 @@ public class Lesson {
         this.videoUrl = videoUrl;
     }
 
-    public Long getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Long courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 }

@@ -10,11 +10,11 @@ import java.util.Map;
 public class Enrollment {
 
     @Id
-    private Long id;
+    private String id;
 
-    private Long courseId;
+    private String courseId;
 
-    private Long studentId;
+    private String studentId;
 
     private LocalDate enrollmentDate;
 
@@ -37,27 +37,27 @@ public class Enrollment {
         this.enrollmentDate = enrollmentDate;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Long courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 }

@@ -12,7 +12,7 @@ import java.util.Objects;
 public class Course {
 
     @Id
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -24,12 +24,12 @@ public class Course {
 
     private Status status;
 
-    private Long instructorId;
+    private String instructorId;
 
     @JsonIgnore
     private CompletionStatus completionStatus;
 
-    private List<Long> lessonIds;
+    private List<String> lessonIds;
 
     private boolean isPurchased;
 
@@ -37,7 +37,7 @@ public class Course {
         this.lessonIds = new ArrayList<>();  // Constructor'da başlatıyoruz
     }
 
-    public Course(Long id, String name, String description, Integer price) {
+    public Course(String id, String name, String description, Integer price) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -70,11 +70,11 @@ public class Course {
         isPurchased = purchased;
     }
 
-    public List<Long> getLessonIds() {
+    public List<String> getLessonIds() {
         return lessonIds;
     }
 
-    public void setLessonIds(List<Long> lessonIds) {
+    public void setLessonIds(List<String> lessonIds) {
         this.lessonIds = lessonIds;
     }
 
@@ -86,19 +86,19 @@ public class Course {
         this.completionStatus = completionStatus;
     }
 
-    public Long getInstructorId() {
+    public String getInstructorId() {
         return instructorId;
     }
 
-    public void setInstructorId(Long instructorId) {
+    public void setInstructorId(String instructorId) {
         this.instructorId = instructorId;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

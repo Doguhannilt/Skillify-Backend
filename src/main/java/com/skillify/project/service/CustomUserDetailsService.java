@@ -62,6 +62,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         User savedUser = userRepository.save(user);
 
         UserDTO userDTO = new UserDTO(savedUser.getId(), savedUser.getName(), savedUser.getEmail(), savedUser.getRole());
+
         return ResponseEntity.ok(userDTO);
     }
 }

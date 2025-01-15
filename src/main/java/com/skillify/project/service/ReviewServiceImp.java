@@ -29,7 +29,7 @@ public class ReviewServiceImp implements ReviewService {
     @Override
     public ResponseEntity<String> createReview(Review review) throws Exception {
 
-        Optional<User> isStudentValid = userRepository.findById(Long.valueOf(review.getStudent().getId()));
+        Optional<User> isStudentValid = userRepository.findById(review.getStudent().getId());
         if (isStudentValid.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
         }
@@ -44,7 +44,7 @@ public class ReviewServiceImp implements ReviewService {
     }
 
     @Override
-    public ResponseEntity<String> deleteReview(Long id) throws Exception {
+    public ResponseEntity<String> deleteReview(String id) throws Exception {
         Optional<Review> review = reviewRepository.findById(id);
         if (review.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Review not found");

@@ -27,7 +27,7 @@ public class EnrollmentServiceImp implements EnrollmentService {
     }
 
     @Override
-    public ResponseEntity<String> createEnrollment(Long course_id, Long user_id) throws Exception {
+    public ResponseEntity<String> createEnrollment(String course_id, String user_id) throws Exception {
         Optional<Course> isCourseIdValid = courseRepository.findById(String.valueOf(course_id));
         if (isCourseIdValid.isEmpty()) {
             throw new Exception("Course is not available with ID: " + course_id);
@@ -48,12 +48,12 @@ public class EnrollmentServiceImp implements EnrollmentService {
 
     @Override
     public ResponseEntity<String> deleteEnrollment(Enrollment enrollment) throws Exception {
-        enrollmentRepository.deleteById(Long.valueOf(enrollment.getId()));
+        enrollmentRepository.deleteById(enrollment.getId());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(String.valueOf(enrollment.getId()));
     }
 
     @Override
-    public boolean isCourseCompleted(Long enrollmentId) throws Exception {
+    public boolean isCourseCompleted(String enrollmentId) throws Exception {
         Optional<Enrollment> enrollmentOptional = enrollmentRepository.findById(enrollmentId);
         if (enrollmentOptional.isEmpty()) {
             throw new Exception("Enrollment not found");

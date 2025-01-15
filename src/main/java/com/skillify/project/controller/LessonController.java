@@ -41,7 +41,7 @@ public class LessonController {
     // Delete a lesson by id
     @Operation(summary = "Delete a lesson by id", description = "Delete a lesson by its ID")
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteLesson(@PathVariable Long id) {
+    public ResponseEntity<String> deleteLesson(@PathVariable String id) {
         try {
             logger.info("Deleting lesson with ID: {}", id);
             Lesson lesson = new Lesson();

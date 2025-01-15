@@ -40,7 +40,7 @@ public class LessonServiceImp implements LessonService {
                 throw new IllegalArgumentException("Course is not available");}
 
             Course course = isCourseIdValid.get();
-            Long instructorId = course.getInstructorId();
+            String instructorId = course.getInstructorId();
 
             Optional<User> instructor = userRepository.findById(instructorId);
             if (instructor.isEmpty()) {throw new IllegalArgumentException("Instructor not found");}

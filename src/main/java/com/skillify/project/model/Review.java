@@ -10,7 +10,7 @@ import java.util.List;
 public class Review {
 
     @Id
-    private Long id;
+    private String id;
 
     @DBRef
     private Course course; // Doğrudan Course nesnesini referans alıyoruz
@@ -20,11 +20,11 @@ public class Review {
 
     private List<String> comments; // Yorumları tutmak için
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

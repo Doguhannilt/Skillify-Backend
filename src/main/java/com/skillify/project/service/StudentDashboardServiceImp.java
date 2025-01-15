@@ -27,7 +27,7 @@ public class StudentDashboardServiceImp implements StudentDashboardService {
     }
 
     @Override
-    public List<Course> getEnrolledCourses(Long studentId) {
+    public List<Course> getEnrolledCourses(String studentId) {
         List<Enrollment> enrollments = enrollmentRepository.findByStudentId(studentId);
 
         return enrollments.stream()
@@ -36,7 +36,7 @@ public class StudentDashboardServiceImp implements StudentDashboardService {
                 .collect(Collectors.toList());
     }
 
-    public void markLessonAsCompleted(Long lessonId) {
+    public void markLessonAsCompleted(String lessonId) {
         Lesson lesson = lessonRepository.findById(lessonId)
                 .orElseThrow(() -> new RuntimeException("Lesson not found"));
         lesson.setStatus(true);

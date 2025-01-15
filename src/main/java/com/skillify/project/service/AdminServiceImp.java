@@ -36,13 +36,14 @@ public class AdminServiceImp implements AdminService {
 
     @Override
     public ResponseEntity<Optional<User>> getUserById(User user) throws Exception {
-        Optional<User> byId = userRepository.findById(Long.valueOf(user.getId()));
+        Optional<User> byId = userRepository.findById(user.getId());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(byId);
     }
 
     @Override
     public void deleteUserById(User user) throws Exception {
-        userRepository.deleteById(Long.valueOf(user.getId()));
+        userRepository.deleteById(user.getId());
+
     }
 
     @Override
@@ -90,7 +91,7 @@ public class AdminServiceImp implements AdminService {
     public ResponseEntity<List<Course>> getPopularCourses() throws Exception {
         List<Enrollment> enrollments = enrollmentRepository.findAll();
 
-        Map<Long, Long> courseEnrollmentCount = new HashMap<>();
+        Map<String, Long> courseEnrollmentCount = new HashMap<>();
         for (Enrollment enrollment : enrollments) {
             courseEnrollmentCount.put(enrollment.getCourseId(),
                     courseEnrollmentCount.getOrDefault(enrollment.getCourseId(), 0L) + 1);

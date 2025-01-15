@@ -25,7 +25,7 @@ public class FavoriteController {
 
     @Operation(summary = "Add to your favorite")
     @PostMapping("/add")
-    public ResponseEntity<String> addToYourFavoriteSection(@RequestParam Long courseId){
+    public ResponseEntity<String> addToYourFavoriteSection(@RequestParam String courseId){
         try{
             favoriteService.addFavorite(courseId);
             logger.info("Favorite added");
@@ -38,7 +38,7 @@ public class FavoriteController {
 
     @Operation(summary = "Add to your favorite")
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteCourseFromYourFavoriteSection(@RequestParam Long courseId){
+    public ResponseEntity<String> deleteCourseFromYourFavoriteSection(@RequestParam String courseId){
         try{
             favoriteService.removeFavorite(courseId);
             logger.info("Favorite deleted");

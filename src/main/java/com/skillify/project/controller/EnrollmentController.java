@@ -21,7 +21,7 @@ public class EnrollmentController {
 
     @Operation(summary = "Create a new enrollment")
     @PostMapping("/create")
-    public ResponseEntity<String> createEnrollment(@RequestParam Long courseId, @RequestParam Long userId) {
+    public ResponseEntity<String> createEnrollment(@RequestParam String courseId, @RequestParam String userId) {
         logger.info("Creating enrollment for courseId: {} and userId: {}", courseId, userId);
         try {
             return enrollmentService.createEnrollment(courseId, userId);
@@ -33,7 +33,7 @@ public class EnrollmentController {
 
     @Operation(summary = "Delete an enrollment")
     @DeleteMapping("/delete/{enrollmentId}")
-    public ResponseEntity<String> deleteEnrollment(@PathVariable Long enrollmentId) {
+    public ResponseEntity<String> deleteEnrollment(@PathVariable String enrollmentId) {
         logger.info("Deleting enrollment with ID: {}", enrollmentId);
         try {
             Enrollment enrollment = new Enrollment();
@@ -47,7 +47,7 @@ public class EnrollmentController {
 
     @Operation(summary = "Check if a course is completed")
     @GetMapping("/is-completed/{enrollmentId}")
-    public ResponseEntity<String> isCourseCompleted(@PathVariable Long enrollmentId) {
+    public ResponseEntity<String> isCourseCompleted(@PathVariable String enrollmentId) {
         logger.info("Checking if course is completed for enrollment ID: {}", enrollmentId);
         try {
             boolean isCompleted = enrollmentService.isCourseCompleted(enrollmentId);

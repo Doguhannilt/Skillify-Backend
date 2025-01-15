@@ -10,5 +10,5 @@ public interface CourseRepository extends MongoRepository<Course, String> {
     Optional<Course> findByName(String name);
     List<Course> findByNameContainingIgnoreCase(String name);
 
-    List<Course> findByInstructorId(Long instructorId);
+    List<Course> findByInstructorId(String instructorId);
 }

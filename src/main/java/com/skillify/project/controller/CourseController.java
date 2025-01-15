@@ -118,7 +118,7 @@ public class CourseController {
     @Operation(summary = "Purchase a course")
     @PreAuthorize("hasRole('ROLE_STUDENT')")
     @PostMapping("/{courseId}/purchase")
-    public ResponseEntity<String> purchaseCourse(@PathVariable Long courseId, @RequestParam Long userId) {
+    public ResponseEntity<String> purchaseCourse(@PathVariable String courseId, @RequestParam String userId) {
         try {
             Optional<Course> courseOptional = courseRepository.findById(String.valueOf(courseId));
             if (courseOptional.isEmpty()) {

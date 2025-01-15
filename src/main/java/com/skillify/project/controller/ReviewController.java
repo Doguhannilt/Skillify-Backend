@@ -38,7 +38,7 @@ public class ReviewController {
     // Delete a review by id
     @Operation(summary = "Delete a review by id", description = "Delete a review by its ID")
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteReview(@PathVariable Long id) {
+    public ResponseEntity<String> deleteReview(@PathVariable String id) {
         try {
             logger.info("Deleting review with ID: {}", id);
             ResponseEntity<String> response = reviewServiceImp.deleteReview(id);

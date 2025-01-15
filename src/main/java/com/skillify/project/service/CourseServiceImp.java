@@ -35,7 +35,7 @@ public class CourseServiceImp implements CourseService {
                 throw new Exception("This course name is already taken");
             }
 
-            Long instructorObjectId = course.getInstructorId();
+            String instructorObjectId = course.getInstructorId();
             System.out.println("Instructor ID: " + instructorObjectId);
 
             Optional<User> instructor = userRepository.findById(instructorObjectId);

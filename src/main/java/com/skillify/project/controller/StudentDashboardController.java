@@ -27,7 +27,7 @@ public class StudentDashboardController {
     @Operation(summary = "Get Enrolled Courses by studentId", description = "Retrieve the list of courses the student is enrolled in")
     @GetMapping("/courses")
     @Cacheable(value = "enrolledCourses", key = "#studentId")
-    public ResponseEntity<List<Course>> getEnrolledCourses(@RequestParam Long studentId) {
+    public ResponseEntity<List<Course>> getEnrolledCourses(@RequestParam String studentId) {
         try {
             logger.info("Fetching enrolled courses for studentId: {}", studentId);
             List<Course> enrolledCourses = dashboardService.getEnrolledCourses(studentId);
@@ -43,7 +43,7 @@ public class StudentDashboardController {
     @Operation(summary = "Get completed lesson", description = "Mark a lesson as completed by its lessonProgressId")
     @PostMapping("/lessons/{lessonProgressId}/complete")
     @CacheEvict(value = "lessonProgress", key = "#lessonProgressId")
-    public ResponseEntity<Void> markLessonAsCompleted(@PathVariable Long lessonProgressId) {
+    public ResponseEntity<Void> markLessonAsCompleted(@PathVariable String lessonProgressId) {
         try {
             logger.info("Marking lesson with progressId: {} as completed", lessonProgressId);
             dashboardService.markLessonAsCompleted(lessonProgressId);

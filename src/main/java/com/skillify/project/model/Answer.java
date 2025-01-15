@@ -9,19 +9,19 @@ import java.util.List;
 @Document(collection = "answers")
 public class Answer {
     @Id
-    private Long id;
+    private String id;
     private String content;
-    private Long instructorId;
-    private Long questionId;
+    private String instructorId;
+    private String questionId;
     private int likesCount = 0;
     private String status; // pending, answered, liked
     private List<Comment> comments = new ArrayList<>();
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -33,19 +33,19 @@ public class Answer {
         this.content = content;
     }
 
-    public Long getInstructorId() {
+    public String getInstructorId() {
         return instructorId;
     }
 
-    public void setInstructorId(Long instructorId) {
+    public void setInstructorId(String instructorId) {
         this.instructorId = instructorId;
     }
 
-    public Long getQuestionId() {
+    public String getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Long questionId) {
+    public void setQuestionId(String questionId) {
         this.questionId = questionId;
     }
 

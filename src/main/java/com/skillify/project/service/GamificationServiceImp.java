@@ -23,7 +23,7 @@ public class GamificationServiceImp implements GamificationService {
     }
 
     @Override
-    public void addPointsToUser(Long userId, GamificationEvents event) {
+    public void addPointsToUser(String userId, GamificationEvents event) {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isEmpty()) {
             throw new IllegalArgumentException("User not found");

@@ -24,7 +24,7 @@ public class FavoriteServiceImp implements FavoriteService {
     }
 
     @Override
-    public ResponseEntity<String> addFavorite(Long courseId) {
+    public ResponseEntity<String> addFavorite(String courseId) {
         Optional<Course> isCourseIdAvailable = courseRepository.findById(String.valueOf(courseId));
         if (!isCourseIdAvailable.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course with ID " + courseId + " is not available.");
@@ -45,7 +45,7 @@ public class FavoriteServiceImp implements FavoriteService {
     }
 
     @Override
-    public ResponseEntity<String> removeFavorite(Long courseId) {
+    public ResponseEntity<String> removeFavorite(String courseId) {
         Optional<Favorite> favorite = favoriteRepository.findById(courseId);
         if (!favorite.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Favorite course with ID " + courseId + " not found.");
