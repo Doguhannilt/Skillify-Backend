@@ -12,253 +12,268 @@
           line-height: 1.6;
           margin: 0;
           padding: 0;
-          background-color: #f9f9f9;
+          background-color: #f4f6f9;
           color: #333;
         }
+
         h1, h2, h3 {
-          color: #FFF;
+          color: #2d3a45;
+          margin: 0;
+          padding-bottom: 10px;
         }
 
         /* Header */
         header {
-          background-color: #2d3a45;
+          background-color: #1f2a36;
           color: white;
-          padding: 20px 0;
+          padding: 40px 0;
           text-align: center;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+          font-size: 2.5rem;
+          letter-spacing: 2px;
         }
 
         /* Main Section */
         main {
-          padding: 30px;
+          padding: 40px;
           max-width: 1200px;
           margin: 0 auto;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
-        /* Task List Styles */
-        .task-list {
-          list-style-type: none;
-          padding: 0;
+        /* Table Styles */
+        table {
+          width: 100%;
+          margin-bottom: 40px;
+          border-collapse: collapse;
         }
 
-        .task-list li {
-          background-color: #fff;
-          padding: 20px;
-          margin-bottom: 15px;
-          border-radius: 8px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+        th, td {
+          padding: 15px;
+          text-align: left;
+          border: 1px solid #ddd;
         }
 
-        .task-list li span {
+        th {
+          background-color: #1f2a36;
+          color: white;
+          font-size: 1.1rem;
+        }
+
+        td {
+          background-color: #f9f9f9;
+          color: #333;
+          font-size: 1rem;
+        }
+
+        td span {
           font-weight: bold;
           color: #2d3a45;
         }
 
-        .task-list li .description {
-          color: #666;
+        td p {
           margin-top: 5px;
+          color: #777;
+          font-size: 0.95rem;
         }
 
-        .task-list li.completed {
-          border-left: 5px solid #28a745;
+        /* Completed Row Style */
+        tr.completed {
+          background-color: #eafaf1;
+        }
+
+        tr.completed td span {
+          color: #28a745;
         }
 
         /* Button Style */
         .btn {
           background-color: #28a745;
           color: white;
-          padding: 10px 20px;
-          border-radius: 5px;
+          padding: 12px 24px;
+          border-radius: 30px;
           text-decoration: none;
-          font-weight: bold;
-          transition: background-color 0.3s;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          display: inline-block;
+          transition: background-color 0.3s, transform 0.3s;
         }
 
         .btn:hover {
           background-color: #218838;
+          transform: translateY(-3px);
         }
 
-        /* Footer */
-        footer {
-          background-color: #2d3a45;
-          color: white;
-          text-align: center;
-          padding: 10px;
-          position: absolute;
-          bottom: 0;
-          width: 100%;
+        .btn:active {
+          transform: translateY(0);
         }
-
     </style>
-<header>
+
+    <header>
     <h1>Online Course Management Platform</h1>
     <p>Track tasks and technologies for platform development</p>
 </header>
 
-<main>
-    <h2>Notes</h2>
-    <ul class="task-list">
-        <li class="completed">
-            <span>Favorite Section Added ✔</span>
-            <p class="description">A purchase system has been implemented where users can buy courses. Payment processing is handled through Stripe, ensuring secure and seamless transactions. Once purchased, the course is unlocked, and the user gains full access to its content.</p>
-        </li>
-        <li class="completed">
-            <span>Gamification Implemented ✔</span>
-            <p class="description">A gamification system has been integrated, rewarding users with badges and points for reaching specific milestones.</p>
-        </li>
-        <li class="completed">
-            <span>Course Purchase Feature Added ✔</span>
-            <p class="description">Users can securely purchase courses using Stripe. Purchased courses are unlocked for full access.</p>
-        </li>
-    </ul>
-    <h2>Tasks for Online Course Management Platform</h2>
-    <ul class="task-list">
-        <li class="completed">
-            <span>Similar Course Recommendation System Added ✔</span>
-            <p class="description">
-                A recommendation system has been implemented using TF-IDF (Term Frequency - Inverse Document Frequency) and Cosine Similarity.  
-                The system identifies and ranks the top 5 most similar courses based on their descriptions.  
-                This feature provides students with personalized suggestions, enhancing their learning experience.
-            </p>
-        </li>
-        <li class="completed">
-            <span>User Registration and Authentication ✔</span>
-            <p class="description">Users can sign up with email, password, and name. Passwords will be encrypted securely.</p>
-        </li>
-        <li class="completed">
-            <span>User Role Management ✔</span>
-            <p class="description">Supports multiple roles: Instructor, Student, Admin with different platform access.</p>
-        </li>
-        <li class="completed">
-            <span>Login and JWT Authentication ✔</span>
-            <p class="description">Users log in using email and password and receive a JWT token for authentication.</p>
-        </li>
-        <li class="completed">
-            <span>Course Creation and Management ✔</span>
-            <p class="description">Instructors can create courses by providing details like title, description, and category. They can also edit or delete courses.</p>
-        </li>
-        <li class="completed">
-            <span>Course Enrollment ✔</span>
-            <p class="description">Students can browse available courses and enroll. They can also check if the course is full.</p>
-        </li>
-        <li class="completed">
-            <span>Lesson Management ✔</span>
-            <p class="description">Instructors can add lessons to their courses, including titles, content, and optional video URLs.</p>
-        </li>
-        <li class="completed">
-            <span>Course List and Search ✔</span>
-            <p class="description">Students can search and filter courses by name, category, or instructor. Paginated course list for large numbers.</p>
-        </li>
-        <li class="completed">
-            <span>Student Dashboard ✔</span>
-            <p class="description">Students can view their enrolled courses, mark lessons as completed, and track their progress.</p>
-        </li>
-        <li class="completed">
-            <span>Instructor Dashboard ✔</span>
-            <p class="description">Instructors can manage their courses and students, view enrollments, and update/delete lessons.</p>
-        </li>
-        <li class="completed">
-            <span>Admin Panel ✔</span>
-            <p class="description">Admins can manage users, courses, enrollments, approve/reject courses, and manually enroll students.</p>
-        </li>
-        <li class="completed">
-            <span>Course Completion Tracking ✔</span>
-            <p class="description">Students can track their progress, marking lessons as completed to show course completion.</p>
-        </li>
-        <li class="completed">
-            <span>Payment System Integration ✔</span>
-            <p class="description">Integration with Stripe or PayPal for course purchases, handling payments and issuing receipts.</p>
-        </li>
-        <li class="completed">
-            <span>Course Rating and Review System ✔</span>
-            <p class="description">Students can rate and review courses after completing them, helping other students make informed decisions.</p>
-        </li>
-        <li class="completed">
-            <span>Notification System ✔</span>
-            <p class="description">Notifications for course updates, enrollments, and other important actions (email or platform notifications).</p>
-        </li>
-        <li class="completed">
-            <span>Responsive Design ✔</span>
-            <p class="description">Fully optimized for desktop and mobile devices, ensuring a smooth experience for all screen sizes.</p>
-        </li>
-        <li class="completed">
-            <span>Analytics and Reports for Admins ✔</span>
-            <p class="description">Admins can view reports on active users, popular courses, enrollments, and payments in easy-to-read graphs/tables.</p>
-        </li>
-        <li class="completed">
-            <span>Security and Data Protection ✔</span>
-            <p class="description">All user data, including passwords, is securely stored and transmitted with encryption and authorization checks.</p>
-        </li>
-    </ul>
+    <main>
+        <h2>Notes</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="completed">
+                <td><span>Lazy Loading and Performance Improvements</span></td>
+                <td><p>By implementing lazy loading for resources and optimizing critical services, the page load time was reduced by 3 seconds. This change allows for faster initial page rendering and better resource management, leading to an overall improvement in user experience.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Redis and Caching System</span></td>
+                <td><p>Redis caching has been implemented across several services to improve performance and reduce database load. Popular queries, such as fetching all courses, filtering by name or instructor, and course recommendations, are now cached, resulting in faster responses for users.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Favorite Section</span></td>
+                <td><p>A purchase system has been implemented where users can buy courses. Payment processing is handled through Stripe, ensuring secure and seamless transactions. Once purchased, the course is unlocked, and the user gains full access to its content.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Gamification</span></td>
+                <td><p>A gamification system has been integrated, rewarding users with badges and points for reaching specific milestones.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Course Purchase Feature</span></td>
+                <td><p>Users can securely purchase courses using Stripe. Purchased courses are unlocked for full access.</p></td>
+            </tr>
+            </tbody>
+        </table>
 
-    <h2>Technologies for Online Course Management Platform</h2>
-    <ul class="task-list">
-        <li class="completed">
-            <span>Spring Boot ✔</span>
-            <p class="description">Backend framework for building RESTful APIs, managing security, and user data.</p>
-        </li>
-        <li class="completed">
-            <span>MySQL or PostgreSQL ✔</span>
-            <p class="description">Relational databases to store user, course, lesson, and enrollment data.</p>
-        </li>
-        <li class="completed">
-            <span>Spring Security ✔</span>
-            <p class="description">Comprehensive security framework for authentication, authorization, and role-based access control (RBAC).</p>
-        </li>
-        <li class="completed">
-            <span>JWT ✔</span>
-            <p class="description">Stateless authentication using JSON Web Tokens for secure communication between the client and the server.</p>
-        </li>
-        <li class="completed">
-            <span>Stripe or PayPal ✔</span>
-            <p class="description">Payment gateways for handling course purchases, payments, and receipts.</p>
-        </li>
-        <li class="completed">
-            <span>Spring Integration or Spring Kafka ✔</span>
-            <p class="description">Frameworks for implementing asynchronous messaging for notifications via email or platform notifications.</p>
-        </li>
-        <li class="completed">
-            <span>JavaMail API ✔</span>
-            <p class="description">For sending confirmation emails, notifications, and course updates to users.</p>
-        </li>
-        <li class="completed">
-            <span>Swagger/OpenAPI ✔</span>
-            <p class="description">For API documentation, providing an interactive interface to test and explore the platform’s services.</p>
-        </li>
-        <li class="completed">
-            <span>SLF4J with Logback ✔</span>
-            <p class="description">For logging application events and errors to monitor and debug the system.</p>
-        </li>
-        <li class="completed">
-            <span>Git ✔</span>
-            <p class="description">For version control and collaborating on the platform’s source code repository.</p>
-        </li>
-        <li class="completed">
-            <span>Docker ✔</span>
-            <p class="description">For containerizing the application, ensuring portability across different environments.</p>
-        </li>
-        <li class="completed">
-            <span>AWS or Heroku ✔</span>
-            <p class="description">Cloud platforms for hosting the application, database, and other services.</p>
-        </li>
-        <li class="completed">
-            <span>IntelliJ IDEA or VS Code ✔</span>
-            <p class="description">IDE support for Java development and debugging. IntelliJ is excellent for Spring Boot development.</p>
-        </li>
-        <li class="completed">
-            <span>JUnit 5 ✔</span>
-            <p class="description">For writing unit tests for application functionality, ensuring code reliability and stability.</p>
-        </li>
-        <li class="completed">
-            <span>Tailwind CSS ✔</span>
-            <p class="description">For responsive, utility-first CSS styling that makes building UI components faster and easier.</p>
-        </li>
-    </ul>
+        <h2>Tasks for Online Course Management Platform</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="completed">
+                <td><span>Similar Course Recommendation System</span></td>
+                <td><p>A recommendation system has been implemented using TF-IDF (Term Frequency - Inverse Document Frequency) and Cosine Similarity. The system identifies and ranks the top 5 most similar courses based on their descriptions. This feature provides students with personalized suggestions, enhancing their learning experience.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>User Registration and Authentication</span></td>
+                <td><p>Users can sign up with email, password, and name. Passwords will be encrypted securely.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>User Role Management</span></td>
+                <td><p>Supports multiple roles: Instructor, Student, Admin with different platform access.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Login and JWT Authentication</span></td>
+                <td><p>Users log in using email and password and receive a JWT token for authentication.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Course Creation and Management</span></td>
+                <td><p>Instructors can create courses by providing details like title, description, and category. They can also edit or delete courses.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Course Enrollment</span></td>
+                <td><p>Students can browse available courses and enroll. They can also check if the course is full.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Lesson Management</span></td>
+                <td><p>Instructors can add lessons to their courses, including titles, content, and optional video URLs.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Course List and Search</span></td>
+                <td><p>Students can search and filter courses by name, category, or instructor. Paginated course list for large numbers.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Student Dashboard</span></td>
+                <td><p>Students can view their enrolled courses, mark lessons as completed, and track their progress.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Instructor Dashboard</span></td>
+                <td><p>Instructors can manage their courses and students, view enrollments, and update/delete lessons.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Admin Panel</span></td>
+                <td><p>Admins can manage users, courses, enrollments, approve/reject courses, and manually enroll students.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Course Completion Tracking</span></td>
+                <td><p>Students can track their progress, marking lessons as completed to show course completion.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Payment System Integration</span></td>
+                <td><p>Integration with Stripe or PayPal for course purchases, handling payments and issuing receipts.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Course Rating and Review System</span></td>
+                <td><p>Students can rate and review courses after completing them, helping other students make informed decisions.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Notification System</span></td>
+                <td><p>Notifications for course updates, enrollments, and other important actions (email or platform notifications).</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Analytics and Reports for Admins</span></td>
+                <td><p>Admins can view reports on active users, popular courses, enrollments, and payments in easy-to-read graphs/tables.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Security and Data Protection</span></td>
+                <td><p>All user data, including passwords, is securely stored and transmitted with encryption and authorization checks.</p></td>
+            </tr>
+            </tbody>
+        </table>
 
-    <a href="https://github.com/Doguhannilt/Skillify-Backend" class="btn">Learn More</a>
-</main>
+        <h2>Technologies for Online Course Management Platform</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Technology</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="completed">
+                <td><span>Spring Boot</span></td>
+                <td><p>Backend framework for building RESTful APIs, managing security, and user data.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>MySQL or PostgreSQL (MongoDB Provided)</span></td>
+                <td><p>Relational databases to store user, course, lesson, and enrollment data.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Spring Security</span></td>
+                <td><p>Comprehensive security framework for authentication, authorization, and role-based access control (RBAC).</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>JWT</span></td>
+                <td><p>Stateless authentication using JSON Web Tokens for secure communication between the client and the server.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Stripe or PayPal</span></td>
+                <td><p>Payment gateways for handling course purchases, payments, and receipts.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Redis</span></td>
+                <td><p>Used for caching and improving application performance, reducing database load.</p></td>
+            </tr>
+            <tr class="completed">
+                <td><span>Docker</span></td>
+                <td><p>Containerization technology for developing, deploying, and scaling the application efficiently.</p></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="https://www.github.com/doguhannilt/Skillify-Backend" class="btn">View Full Project</a>
+    </main>
 
 </body>
 </html>
