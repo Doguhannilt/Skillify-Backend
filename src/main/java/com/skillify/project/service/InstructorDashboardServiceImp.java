@@ -22,6 +22,9 @@ public class InstructorDashboardServiceImp implements InstructorDashboardService
 
     @Override
     public List<Course> getInstructorCourses(String instructorId) throws Exception {
+        if (instructorId == null) {
+            throw new IllegalArgumentException("Instructor ID cannot be null.");
+        }
         return courseRepository.findByInstructorId(instructorId);
     }
 }

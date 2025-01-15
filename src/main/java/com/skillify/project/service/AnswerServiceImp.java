@@ -22,9 +22,6 @@ public class AnswerServiceImp implements AnswerService {
     public Answer answerQuestion(Answer answer) throws Exception {
         Question question = questionRepository.findById(String.valueOf(answer.getQuestionId())).orElse(null);
 
-        if (answer == null) {
-            throw new IllegalArgumentException("Answer cannot be null.");
-        }
         if (answer.getContent() == null || answer.getContent().trim().isEmpty()) {
             throw new IllegalArgumentException("Answer content cannot be empty.");
         }
