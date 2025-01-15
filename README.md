@@ -197,29 +197,175 @@ This feature enhances user engagement by offering personalized course recommenda
 The following tests have been successfully passed:
 
 ### 1. **Create Lesson Tests**
-   - `createLesson_Success`: The lesson was successfully created.
-   - `createLesson_CourseNotFound`: Appropriate error message is returned when the course is not found.
+#### `createLesson_Success`
+- **Description**: The lesson was successfully created.
+- **Test Details**: 
+  - A new lesson was created and successfully added to the system.
+  - The relevant course was found and the lesson was successfully associated.
+
+#### `createLesson_CourseNotFound`
+- **Description**: Appropriate error message is returned when the course is not found.
+- **Test Details**: 
+  - When the provided course name was not found, an appropriate error message was returned to the user.
+
+---
 
 ### 2. **Update Lesson Tests**
-   - `updateLesson_Success`: The lesson was successfully updated.
+#### `updateLesson_Success`
+- **Description**: The lesson was successfully updated.
+- **Test Details**:
+  - The lesson details were successfully updated.
+
+---
 
 ### 3. **Delete Lesson Tests**
-   - `deleteLesson_Success`: The lesson was successfully deleted.
+#### `deleteLesson_Success`
+- **Description**: The lesson was successfully deleted.
+- **Test Details**: 
+  - The lesson was successfully removed from the system.
+
+---
 
 ### 4. **Create Course Tests**
-   - `createCourse_Success`: The course was successfully created and email was sent to the instructor.
-   - `createCourse_CourseAlreadyExists`: An exception was thrown when attempting to create a course with an already taken name.
+#### `createCourse_Success`
+- **Description**: The course was successfully created and an email was sent to the instructor.
+- **Test Details**:
+  - The course was successfully created.
+  - An email was sent to the instructor notifying them about the course creation.
+
+#### `createCourse_CourseAlreadyExists`
+- **Description**: An exception was thrown when attempting to create a course with an already taken name.
+- **Test Details**:
+  - When attempting to create a course with an already existing name, an appropriate exception was thrown.
+
+---
 
 ### 5. **Delete Course Tests**
-   - `deleteCourse_Success`: The course was successfully deleted and email was sent to the instructor.
-   - `deleteCourse_CourseNotFound`: Appropriate error message was returned when trying to delete a non-existent course.
+#### `deleteCourse_Success`
+- **Description**: The course was successfully deleted and an email was sent to the instructor.
+- **Test Details**:
+  - The course was successfully deleted from the system.
+  - An email was sent to the instructor notifying them about the course deletion.
+
+#### `deleteCourse_CourseNotFound`
+- **Description**: An appropriate error message was returned when trying to delete a non-existent course.
+- **Test Details**:
+  - When attempting to delete a course that did not exist, an error message was returned to the user.
+
+---
 
 ### 6. **Update Course Tests**
-   - `updateCourse_Success`: The course was successfully updated.
-   - `updateCourse_CourseNotFound`: An error message was returned when trying to update a non-existent course.
+#### `updateCourse_Success`
+- **Description**: The course was successfully updated.
+- **Test Details**:
+  - The course details were successfully updated.
+
+#### `updateCourse_CourseNotFound`
+- **Description**: An error message was returned when trying to update a non-existent course.
+- **Test Details**:
+  - When attempting to update a course that did not exist, an appropriate error message was returned.
+
+---
 
 ### 7. **Course Recommendation Test**
-   - `testRecommendCourses`: Cosine Similarity is successfully running.
+#### `testRecommendCourses`
+- **Description**: Cosine Similarity is successfully running.
+- **Test Details**:
+  - The recommendation system for courses based on user preferences successfully ran using the Cosine Similarity algorithm.
+
+---
+
+## Additional Tests
+
+### 8. **Gamification Tests**
+#### `addPointsToUser_Success`
+- **Description**: Points were successfully added to the user and appropriate badges were awarded.
+- **Test Details**:
+  - Points from an event were successfully added to the user’s total points.
+  - Appropriate badges were awarded to the user based on their points.
+
+#### `addPointsToUser_UserNotFound`
+- **Description**: Appropriate error message was returned when the user was not found.
+- **Test Details**:
+  - When the provided user ID was not found in the system, an error message was returned.
+
+---
+
+### 9. **Email Service Tests**
+#### `sendEmail_Success`
+- **Description**: The email was successfully sent.
+- **Test Details**:
+  - The email was successfully sent and delivered to the recipient with the appropriate content.
+
+#### `sendEmail_NullValues`
+- **Description**: Appropriate error message was returned when null values were passed.
+- **Test Details**:
+  - When trying to send an email with empty or null values (such as recipient email or subject), an error message was returned.
+
+---
+
+### 10. **SearchService Tests**
+#### `getAllCourses_Success`
+- **Description**: All courses were successfully retrieved.
+- **Test Details**:
+  - All courses in the system were successfully retrieved.
+
+#### `filterByName_Success`
+- **Description**: Courses were successfully listed by name filter.
+- **Test Details**:
+  - Courses were successfully filtered and listed based on the given name.
+
+#### `filterByInstructorName_Success`
+- **Description**: Courses were successfully filtered by instructor name.
+- **Test Details**:
+  - Courses were successfully filtered and listed based on the given instructor name.
+
+---
+
+### 11. **AdminService Tests**
+#### `getAllUsers_Success`
+- **Description**: All users were successfully retrieved.
+- **Test Details**:
+  - All users in the system were successfully retrieved.
+
+#### `getUserById_Success`
+- **Description**: User was successfully retrieved by user ID.
+- **Test Details**:
+  - The user was successfully retrieved from the system using the given user ID.
+
+#### `deleteUserById_Success`
+- **Description**: User was successfully deleted.
+- **Test Details**:
+  - The user was successfully deleted from the system using the provided user ID.
+
+#### `getAllCourses_Success`
+- **Description**: All courses were successfully retrieved.
+- **Test Details**:
+  - All courses in the system were successfully retrieved.
+
+#### `getCourseById_Success`
+- **Description**: Course was successfully retrieved by course ID.
+- **Test Details**:
+  - The course was successfully retrieved from the system using the given course ID.
+
+#### `deleteLessonById_Success`
+- **Description**: Lesson was successfully deleted.
+- **Test Details**:
+  - The lesson was successfully removed from the system.
+
+#### `getEnrollmentsWithinRange_Success`
+- **Description**: Enrollments within the specified date range were successfully retrieved.
+- **Test Details**:
+  - Enrollments for users within the provided date range were successfully retrieved.
+
+---
+
+### 12. **Cosine Similarity Tests**
+#### `testCosineSimilarity_Success`
+- **Description**: Cosine Similarity algorithm ran successfully.
+- **Test Details**:
+  - The recommendation system for courses based on user preferences was successfully executed using the Cosine Similarity algorithm.
+
 
 **Release Notes**:
 
