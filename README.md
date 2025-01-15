@@ -243,9 +243,11 @@ The following tests have been successfully passed:
 
 ---
 
-## **Database Schema**
+## **Schemas**
 
 ![Database Schema](https://github.com/user-attachments/assets/dcbed160-e82a-4da7-ac6c-9ea43e60e240)
+
+![Forum](https://github.com/user-attachments/assets/a7c01568-21f8-4879-8b7d-7855ab1398c3)
 
 ---
 
