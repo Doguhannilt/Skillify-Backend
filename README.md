@@ -5,14 +5,15 @@
 
 1. [Overview](#overview)  
 2. [Urls](#urls)  
-3. [Course Recommendation Service](#course-recommendation-service)  
-4. [Tests](#tests)  
-5. [Notes](#notes)  
-6. [Features](#features)  
-7. [Technologies Used](#technologies-used)  
-8. [Database Schema](#database-schema)  
-9. [Getting Started](#getting-started)  
-10. [License](#license)
+3. [Course Recommendation Service](#course-recommendation-service)
+4. [Forum Feature](#forum-feature-for-online-course-platform)
+5. [Tests](#tests)  
+6. [Notes](#notes)  
+7. [Features](#features)  
+8. [Technologies Used](#technologies-used)  
+9. [Database Schema](#database-schema)  
+10. [Getting Started](#getting-started)  
+11. [License](#license)
     
 ## Overview
 
@@ -26,8 +27,6 @@ This repository contains the code for an Online Course Management Platform devel
 # Forum Feature for Online Course Platform
 
 This document describes the Forum feature implemented in the Online Course Platform. The feature allows students and instructors to interact through forum topics, enabling a collaborative learning environment.
-
-## Overview
 
 The Forum feature includes the following entities and their relationships:
 
