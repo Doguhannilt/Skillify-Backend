@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CacheEvict;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,6 +30,7 @@ public class AdminDashboardController {
     // Getting all users
     @Operation(summary = "Get all users")
     @GetMapping("/users")
+    @Cacheable(value = "users")
     public ResponseEntity<List<User>> getAllUsers() throws Exception {
         logger.info("Fetching all users");
         return adminServiceImp.getAllUsers();
@@ -36,6 +39,7 @@ public class AdminDashboardController {
     // Getting users by id
     @Operation(summary = "Get user by id")
     @GetMapping("/users/{id}")
+    @Cacheable(value = "user", key = "#id")
     public ResponseEntity<Optional<User>> getUserById(@PathVariable Long id) throws Exception {
         logger.info("Fetching user by ID: {}", id);
         User user = new User();
@@ -46,6 +50,7 @@ public class AdminDashboardController {
     // Deleting user by id
     @Operation(summary = "Delete user by id")
     @DeleteMapping("/users/{id}")
+    @CacheEvict(value = "user", key = "#id")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) throws Exception {
         logger.info("Deleting user with ID: {}", id);
         User user = new User();
@@ -57,6 +62,7 @@ public class AdminDashboardController {
     // Getting all courses
     @Operation(summary = "Get all courses")
     @GetMapping("/courses")
+    @Cacheable(value = "courses")
     public ResponseEntity<List<Course>> getAllCourses() throws Exception {
         logger.info("Fetching all courses");
         return adminServiceImp.getAllCourses(null);
@@ -65,6 +71,7 @@ public class AdminDashboardController {
     // Getting course by id
     @Operation(summary = "Get course by id")
     @GetMapping("/courses/{id}")
+    @Cacheable(value = "course", key = "#id")
     public ResponseEntity<Course> getCourseById(@PathVariable Long id) throws Exception {
         logger.info("Fetching course by ID: {}", id);
         Course course = new Course();
@@ -75,6 +82,7 @@ public class AdminDashboardController {
     // Getting all lessons
     @Operation(summary = "Get all lessons")
     @GetMapping("/lessons")
+    @Cacheable(value = "lessons")
     public ResponseEntity<List<Lesson>> getAllLessons() throws Exception {
         logger.info("Fetching all lessons");
         return adminServiceImp.getAllLessons(null);
@@ -83,6 +91,7 @@ public class AdminDashboardController {
     // Getting lesson by id
     @Operation(summary = "Get lesson by id")
     @GetMapping("/lessons/{id}")
+    @Cacheable(value = "lesson", key = "#id")
     public ResponseEntity<Lesson> getLessonById(@PathVariable Long id) throws Exception {
         logger.info("Fetching lesson by ID: {}", id);
         Lesson lesson = new Lesson();
@@ -93,6 +102,7 @@ public class AdminDashboardController {
     // Deleting lesson by id
     @Operation(summary = "Delete lesson by id")
     @DeleteMapping("/lessons/{id}")
+    @CacheEvict(value = "lesson", key = "#id")
     public ResponseEntity<Void> deleteLessonById(@PathVariable Long id) throws Exception {
         logger.info("Deleting lesson with ID: {}", id);
         Lesson lesson = new Lesson();
@@ -104,6 +114,7 @@ public class AdminDashboardController {
     // Getting all enrollments
     @Operation(summary = "Get all enrollments")
     @GetMapping("/enrollments")
+    @Cacheable(value = "enrollments")
     public ResponseEntity<List<Enrollment>> getAllEnrollments() throws Exception {
         logger.info("Fetching all enrollments");
         return adminServiceImp.getAllEnrollments();
@@ -112,6 +123,7 @@ public class AdminDashboardController {
     // Getting all reviews
     @Operation(summary = "Get all reviews")
     @GetMapping("/reviews")
+    @Cacheable(value = "reviews")
     public ResponseEntity<List<Review>> getAllReviews() throws Exception {
         logger.info("Fetching all reviews");
         return adminServiceImp.getAllReviews();
@@ -120,6 +132,7 @@ public class AdminDashboardController {
     // Getting popular courses
     @Operation(summary = "Get popular courses")
     @GetMapping("/popular-courses")
+    @Cacheable(value = "popularCourses")
     public ResponseEntity<List<Course>> getPopularCourses() throws Exception {
         logger.info("Fetching popular courses");
         List<Course> popularCourses = adminServiceImp.getPopularCourses().getBody();
@@ -129,6 +142,7 @@ public class AdminDashboardController {
     // Getting active-users (threshold 10)
     @Operation(summary = "Get active users", description = "Threshold: 10 days")
     @GetMapping("/active-users")
+    @Cacheable(value = "activeUsers")
     public ResponseEntity<List<User>> getActiveUsers() throws Exception {
         logger.info("Fetching active users with threshold of 10 days");
         List<User> activeUsers = adminServiceImp.getActiveUsers().getBody();
@@ -138,6 +152,7 @@ public class AdminDashboardController {
     // Getting enrollments (StartDate - EndDate)
     @Operation(summary = "Get enrollments", description = "StartDate and EndDate required")
     @GetMapping("/enrollments/range")
+    @Cacheable(value = "enrollmentsRange", key = "#startDate + #endDate")
     public ResponseEntity<List<Enrollment>> getEnrollmentsWithinRange(
             @RequestParam("startDate") String startDate,
             @RequestParam("endDate") String endDate) throws Exception {
@@ -150,5 +165,4 @@ public class AdminDashboardController {
         List<Enrollment> enrollments = adminServiceImp.getEnrollmentsWithinRange(start, end).getBody();
         return ResponseEntity.status(HttpStatus.OK).body(enrollments);
     }
-
 }

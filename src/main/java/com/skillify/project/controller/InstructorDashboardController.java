@@ -5,6 +5,7 @@ import com.skillify.project.service.InstructorDashboardServiceImp;
 import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class InstructorDashboardController {
 
     @Operation(summary = "Get Courses", description = "Get Courses By Instructor Id")
     @GetMapping("/courses")
+    @Cacheable(value = "Instructor", key = "#instructorId")
     public ResponseEntity<List<Course>> getInstructorCourses(@RequestParam Long instructorId) throws Exception {
         try {
             logger.info("Fetching courses for instructor with ID: {}", instructorId);
