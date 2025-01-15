@@ -316,7 +316,6 @@ The following tests have been successfully passed:
 
 2. **Database** (MongoDB provided) 
    - **MySQL** or **PostgreSQL**: Relational databases for storing user, course, lesson, and enrollment data. These databases offer scalability and robust querying capabilities.
-   - **JPA (Java Persistence API)**: Object-relational mapping (ORM) for managing entities like User, Course, and Enrollment.
 
 3. **Authentication and Authorization** 
    - **Spring Security**: Provides authentication and authorization features for role-based access control (RBAC).
@@ -341,14 +340,12 @@ The following tests have been successfully passed:
 
 9. **Deployment** 
    - **Docker**: Containerizes the application for portability across environments.
-   - **AWS** or **Heroku**: Cloud platforms for hosting the backend and database.
 
 10. **Development Tools** 
    - **IntelliJ IDEA** or **VS Code**: IDEs for writing and debugging Java code.
    - **Postman**: A tool for testing APIs during development.
 
 11. **Unit and Integration Testing** 
-   - **JUnit 5**: Used for writing unit tests to ensure the application works as expected.
    - **Mockito**: For mocking external dependencies in tests.
 
 12. **Data Protection and Encryption** 
@@ -356,7 +353,7 @@ The following tests have been successfully passed:
    - **TLS/SSL**: Encrypts data in transit to protect sensitive information.
 
 13. **CI/CD Pipeline** 
-   - **Jenkins** or **GitHub Actions**: For automating testing and deployment processes.
+   - **GitHub Actions**: For automating testing and deployment processes.
 
 ---
 
