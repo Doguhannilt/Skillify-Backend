@@ -5,14 +5,15 @@
 
 1. [Overview](#overview)  
 2. [Urls](#urls)  
-3. [Course Recommendation Service](#course-recommendation-service)  
-4. [Tests](#tests)  
-5. [Notes](#notes)  
-6. [Features](#features)  
-7. [Technologies Used](#technologies-used)  
-8. [Database Schema](#database-schema)  
-9. [Getting Started](#getting-started)  
-10. [License](#license)
+3. [Course Recommendation Service](#course-recommendation-service)
+4. [Forum Feature](#forum-feature-for-online-course-platform)
+5. [Tests](#tests)  
+6. [Notes](#notes)  
+7. [Features](#features)  
+8. [Technologies Used](#technologies-used)  
+9. [Database Schema](#database-schema)  
+10. [Getting Started](#getting-started)  
+11. [License](#license)
     
 ## Overview
 
@@ -22,6 +23,122 @@ This repository contains the code for an Online Course Management Platform devel
 
 1. <a href="https://doguhannilt.github.io/Skillify-Backend/">Github Page</a>
 2. <a href="https://hub.docker.com/repository/docker/doguhannilt/myapp">Docker</a>
+
+# Forum Feature for Online Course Platform
+
+This document describes the Forum feature implemented in the Online Course Platform. The feature allows students and instructors to interact through forum topics, enabling a collaborative learning environment.
+
+The Forum feature includes the following entities and their relationships:
+
+1. **ForumTopic**: Represents a topic in the forum created by an instructor.
+   - Fields:
+     - `id`: Unique identifier.
+     - `title`: Title of the topic.
+     - `description`: Description of the topic.
+     - `date`: Creation date.
+     - `keywords`: Related keywords.
+     - `instructorId`: ID of the instructor who created the topic.
+
+2. **Question**: Represents questions asked by students under a specific topic.
+   - Fields:
+     - `id`: Unique identifier.
+     - `content`: The question content.
+     - `studentId`: ID of the student asking the question.
+     - `forumTopicId`: ID of the related topic.
+
+3. **Answer**: Represents answers provided by instructors to questions.
+   - Fields:
+     - `id`: Unique identifier.
+     - `content`: The answer content.
+     - `instructorId`: ID of the instructor answering the question.
+     - `questionId`: ID of the related question.
+
+4. **Comment**: Represents comments on answers, which can be liked and viewed.
+   - Fields:
+     - `id`: Unique identifier.
+     - `content`: The comment content.
+     - `userId`: ID of the user making the comment.
+     - `answerId`: ID of the related answer.
+     - `date`: Date of the comment.
+     - `likesCount`: Number of likes on the comment.
+
+## Key Features
+
+### 1. Forum Topic Management
+- **Retrieve All Topics**:
+  - Endpoint: `GET /api/forum/topics`
+  - Caching: Uses Redis with `@Cacheable` for improved performance.
+
+- **Create New Topic**:
+  - Endpoint: `POST /api/forum/topics`
+  - Validation: Ensures the instructor exists before creating a topic.
+  - Caching: Updates Redis cache with `@CachePut`.
+
+### 2. Question Management
+- **Retrieve Questions by Topic**:
+  - Endpoint: `GET /api/forum/questions/topic/{topicId}`
+  - Retrieves all questions related to a specific forum topic.
+
+- **Ask a Question**:
+  - Endpoint: `POST /api/forum/questions`
+  - Validation: Ensures the topic exists before saving the question.
+
+### 3. Answer Management
+- **Provide an Answer**:
+  - Endpoint: `POST /api/forum/answers`
+  - Validation: Ensures the question exists before saving the answer.
+
+### 4. Comment Management
+- **Retrieve Comments for an Answer**:
+  - Endpoint: `GET /api/forum/comments/answer/{answerId}`
+  - Retrieves all comments related to a specific answer.
+
+- **Add a Comment to an Answer**:
+  - Endpoint: `POST /api/forum/comments`
+  - Validation: Ensures the answer exists before adding a comment.
+
+## Implementation Details
+
+### Models
+- Each entity (ForumTopic, Question, Answer, Comment) is represented as a MongoDB document.
+- Example of the `Comment` model:
+  ```java
+  @Document(collection = "comments")
+  public class Comment {
+      @Id
+      private String id;
+      private String content;
+      private String userId;
+      private String answerId;
+      private Date date;
+      private int likesCount = 0;
+  }
+  ```
+
+### Services
+- Implemented service classes to encapsulate business logic.
+- Example method for adding a comment:
+  ```java
+  public Comment addCommentToAnswer(Comment comment) {
+      if (!answerRepository.existsById(comment.getAnswerId())) {
+          throw new IllegalArgumentException("Answer does not exist.");
+      }
+      return commentRepository.save(comment);
+  }
+  ```
+
+### Controllers
+- RESTful APIs are exposed for managing topics, questions, answers, and comments.
+- Example of creating a new topic:
+  ```java
+  @PostMapping("/topics")
+  @Operation(summary = "Create Forum Topic")
+  @CachePut(value = "forumTopicsCache", key = "#forumTopic.id")
+  public ResponseEntity<ForumTopic> createForumTopic(@RequestBody ForumTopic forumTopic) throws Exception {
+      return ResponseEntity.status(HttpStatus.CREATED).body(forumTopicService.createForumTopic(forumTopic));
+  }
+  ```
+
 
 ## Course Recommendation Service
 
